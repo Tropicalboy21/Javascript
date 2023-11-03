@@ -24,9 +24,6 @@ let compareTriplets = function (a, b) {
     console.log(points);
 
     return points
-
 }
-
-
 
 compareTriplets(arr1, arr2);
