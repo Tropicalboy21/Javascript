@@ -1,5 +1,5 @@
-let arr1 = [2, 5, 6];
-let arr2 = [7, 10, 6];
+let arr1 = [1, 2, 3];
+let arr2 = [3, 2, 1];
 
 let compareTriplets = function (a, b) {
     let aPoints = 0;
@@ -7,24 +7,26 @@ let compareTriplets = function (a, b) {
     let points = [];
 
     for (let i = 0; i < a.length; i++) {
-        for (let j = 0; j < b.length; j++) {
-            if (a[i] > b[j]) {
-                aPoints += 1;
-            } else if (a[i] < b[j]) {
-                bPoints += 1;
-            } else if (a[i] = b[i]) {
-                aPoints += 0;
-                bPoints += 0;
-            }
 
+        if (a[i] > b[i]) {
+            aPoints += 1;
+        } else if (a[i] < b[i]) {
+            bPoints += 1;
+        } else if (a[i] = b[i]) {
+            aPoints;
+            bPoints;
         }
 
     }
-
     points.push(aPoints);
     points.push(bPoints);
 
+    console.log(points);
+
     return points
+
 }
+
+
 
 compareTriplets(arr1, arr2);
