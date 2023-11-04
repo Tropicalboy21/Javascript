@@ -1,7 +1,7 @@
 let arr1 = [1, 2, 3];
 let arr2 = [3, 2, 1];
 
-let compareTriplets = function (a, b) {
+function compareTriplets(a, b) {
     let aPoints = 0;
     let bPoints = 0;
     let points = [];
