@@ -1,3 +1,4 @@
+'use strict';
 // Arrays;
 
 const array = ["apple", "bloomberg", "casio"];
