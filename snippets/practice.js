@@ -17,7 +17,6 @@ if (al === 3 && bl === 3) {
     brands.add("Humblot");
 }
 
-
 let element = "";
 
 array.forEach(function (value) {
