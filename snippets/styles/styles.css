@@ -1,8 +1,14 @@
+body {
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    color: #FFFF;
+}
+
 .container {
     display: flex;
 }
 
 p {
-    border: black 1px solid;
+    border: #FFFF 1px solid;
     /* flex-direction: row-reverse; */
 }
