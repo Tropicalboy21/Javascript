@@ -1,20 +1,17 @@
 'use strict';
-// Arrays;
 
+// Arrays
 const array = ["apple", "bloomberg", "casio"];
 
 // Sets
-
 const brands = new Set(["Humblot", "Mercedes-Benz", "Samsung"]);
 
 // Array.map
 const symbols = ["hello", "nepal", "cumbia"];
 const numbers1 = [45, 4, 9, 16, 25];
 
-
 let al = array.length;
 let bl = brands.size;
-
 
 if (al === 3 && bl === 3) {
     array.push("apple");
@@ -41,12 +38,12 @@ let combination = (element, index) => element[index];
 if (symbols.map(combination).join("") === "hem") {
     console.log("Happy world");
 }
-const numbers2 = myFunction(numbers1);
+const numbers2 = numbers1.map(myFunction);
 
 document.getElementById('map').innerHTML = numbers2;
 
 function myFunction(value) {
-    return value;
+    return value * 2;
 }
 
 
