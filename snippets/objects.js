@@ -3,4 +3,4 @@ var car = {
     brand: "Ferrari"
 }
 
-console.log(car);
+console.log(car.color);
