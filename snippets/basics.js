@@ -19,6 +19,9 @@ let string = "green"
 let x = false;
 let y = true;
 
+// Undefined
+let house;
+
 // Object
 let car = {
     brand: "Ferrari",
@@ -30,4 +33,22 @@ let years = [2000, 2001, 2002, 2003, 2004, 2005];
 
 // Object Date
 
-let date = new Date("mm/dd/yyyy");
+let today = new Date();
+
+// Format date object MM/DD/YYYY
+let dd = today.getDate();
+
+let mm = today.getMonth() + 1;
+
+let yyyy = today.getFullYear();
+
+if (dd < 10) {
+    dd = '0' + dd;
+}
+if (mm < 10) {
+    mm = '0' + mm;
+}
+
+today = mm + "/" + dd + "/" + yyyy;
+
+console.log(today);
