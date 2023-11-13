@@ -28,6 +28,9 @@ let house;
 // Null
 let error = null;
 
+// Symbol
+const sym = Symbol("foo");
+
 // Object
 let car = {
     brand: "Ferrari",
