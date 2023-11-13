@@ -15,12 +15,18 @@ let width = 4.5;
 // String
 let string = "green"
 
+// Bigint
+let z = BigInt("123456789012345678901234567890");
+
 // Boolean
 let x = false;
 let y = true;
 
 // Undefined
 let house;
+
+// Null
+let error = null;
 
 // Object
 let car = {
