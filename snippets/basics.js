@@ -5,3 +5,6 @@ var lastname = "Ugalde";
 const etnicity = "Half blood";
 
 console.log(name, lastname, etnicity);
+
+// Data types
+
