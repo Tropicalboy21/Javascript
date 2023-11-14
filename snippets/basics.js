@@ -61,3 +61,16 @@ if (mm < 10) {
 today = mm + "/" + dd + "/" + yyyy;
 
 console.log(today);
+
+// Loops 
+
+// Functions
+
+function greating() {
+    console.log("Hello")
+}
+
+
+let goodBye = () => {
+    console.log("Good Bye");
+}
