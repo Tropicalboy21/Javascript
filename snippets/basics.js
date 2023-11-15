@@ -64,6 +64,11 @@ console.log(today);
 
 // Loops 
 
+for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+}
+
+
 // Functions
 
 function greating() {
