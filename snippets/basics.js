@@ -62,19 +62,53 @@ today = mm + "/" + dd + "/" + yyyy;
 
 console.log(today);
 
+// Conditionlas 
+
+if (condition) {
+
+} else {
+
+}
+
 // Loops 
 
+// for
 for (let index = 0; index < array.length; index++) {
     const element = array[index];
 }
 
+// foreach
+array.forEach(element => {
+    element += 1
+});
+
+// forin
+for (const key in object) {
+    if (Object.hasOwnProperty.call(object, key)) {
+        const element = object[key];
+
+    }
+}
+// forof
+for (const iterator of object) {
+
+}
+
+// Switch
+switch (key) {
+    case value:
+
+        break;
+
+    default:
+        break;
+}
 
 // Functions
 
 function greating() {
     console.log("Hello")
 }
-
 
 let goodBye = () => {
     console.log("Good Bye");
