@@ -14,7 +14,7 @@ html {
 }
 
 .title {
-    font-size: 4rem;
+    font-size: 3.4rem;
     margin: 0;
 }
 
@@ -25,8 +25,9 @@ html {
     align-items: center;
 }
 
-.window {
-    display: flex;
+#window {
+
+    width: 340px;
 }
 
 p {
@@ -40,7 +41,7 @@ p {
     justify-content: center;
     align-items: center;
     height: 300px;
-    width: 430px;
+    width: 340px;
     background: rgba(255, 255, 255, 0.24);
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -52,7 +53,7 @@ p {
 
 .input {
     padding: 15px;
-    width: 300px;
+    width: 230px;
     background: rgba(255, 255, 255, 0.24);
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
