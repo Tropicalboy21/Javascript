@@ -1,14 +1,46 @@
-body {
-    background-image: url(../img/bg.jpg);
-    background-size: cover;
+body,
+html {
+    height: 100%;
+    margin: 0;
     color: #FFFF;
 }
 
-.container {
-    display: flex;
+.bg {
+    background-image: url(../img/bg.jpg);
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+.title {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window {}
+
 p {
+    padding: 2px;
     border: #FFFF 1px solid;
-    /* flex-direction: row-reverse; */
+    border-radius: 3px;
+}
+
+#square {
+    height: 300px;
+    width: 430px;
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.345);
+
 }
