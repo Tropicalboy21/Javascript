@@ -11,3 +11,16 @@ console.log(b);
 
 console.log(rest);
 // Expected output: Array [30, 40, 50]
+
+let person = {
+    name: "Armando",
+    age: "32",
+    nationality: "Cuban"
+}
+
+let peopleUpdate = ({ name, age, nationality, location }) => {
+    console.log(name);
+}
+
+
+peopleUpdate(person);
