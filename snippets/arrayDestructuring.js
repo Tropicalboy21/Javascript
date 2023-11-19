@@ -15,11 +15,15 @@ console.log(rest);
 let person = {
     name: "Armando",
     age: "32",
-    nationality: "Cuban"
+    nationality: "Cuban",
+    location: "Miami"
 }
 
 let peopleUpdate = ({ name, age, nationality, location }) => {
     console.log(name);
+    console.log(age);
+    console.log(nationality);
+    console.log(location);
 }
 
 
