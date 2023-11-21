@@ -1,4 +1,4 @@
-const arr = [1, 4, 2, 4, 5]
+const arr = [1, 4, 2, 4]
 
 let birthdayCakeCandles = (n) => {
     let numCandles = 0;
@@ -13,3 +13,5 @@ let birthdayCakeCandles = (n) => {
     console.log(numCandles);
     return numCandles;
 }
+
+birthdayCakeCandles(arr);
