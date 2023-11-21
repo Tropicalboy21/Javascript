@@ -6,9 +6,9 @@ let myPromise = new Promise((resolve, reject) => {
     let x = 0
 
     if (x === 0) {
-        resolve("ok");
+        resolve("Ok");
     } else {
-        reject("error");
+        reject("Error");
     }
 });
 
