@@ -10,5 +10,6 @@ let birthdayCakeCandles = (n) => {
         }
     }
 
+    console.log(numCandles);
     return numCandles;
 }
