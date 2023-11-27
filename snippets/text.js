@@ -130,7 +130,7 @@ function classifyString(input) {
 }
 
 // Example usage:
-const inputString = '- 3 7';
+const inputString = '+ 3 4';
 const result2 = classifyString(inputString);
 console.log(result2);
 
