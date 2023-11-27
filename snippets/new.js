@@ -1,5 +1,6 @@
 function calculateAlternativeSyntax(input) {
     let stack = [];
+
     for (let i = 0; i < input.length; i++) {
         if (input[i] != ' ') {
             stack.push(input[i]);
@@ -11,8 +12,19 @@ function calculateAlternativeSyntax(input) {
     let operand2 = parseInt(stack[2]);
     let result = 0;
 
-    if (operator === '+') {
-        result = operand1 + operand2
+    switch (operator) {
+        case "+":
+            result = operand1 + operand2
+            break;
+        case "-":
+            result = operand1 - operand2
+            break;
+        case "*":
+            result = operand1 * operand2
+            break;
+        case "/":
+            result = operand1 / operand2
+            break;
     }
 
     console.log(result);
@@ -20,6 +32,5 @@ function calculateAlternativeSyntax(input) {
 
 
 // Example usage:
-const alternativeExpression = '+ 3 4';
+const alternativeExpression = '+ 6 6';
 const result = calculateAlternativeSyntax(alternativeExpression);
-console.log(result);
