@@ -12,25 +12,37 @@ function calculateAlternativeSyntax(input) {
 
     let result = 0;
 
+    if (stackOperands.length === 1) {
 
-    let operator = stackOperators[0];
-    let operand1 = stackOperands[0];
-    let operand2 = stackOperands[1];
+        let operator = stackOperators[0];
+        let operand1 = stackOperands[0];
+        let operand2 = stackOperands[1];
 
-    switch (operator) {
-        case "+":
-            result = operand1 + operand2
-            break;
-        case "-":
-            result = operand1 - operand2
-            break;
-        case "*":
-            result = operand1 * operand2
-            break;
-        case "/":
-            result = operand1 / operand2
-            break;
+        switch (operator) {
+            case "+":
+                result = operand1 + operand2
+                break;
+            case "-":
+                result = operand1 - operand2
+                break;
+            case "*":
+                result = operand1 * operand2
+                break;
+            case "/":
+                result = operand1 / operand2
+                break;
+        }
+    } else if (stackOperands.length >= 2) {
+
+        let operator1 = stackOperators[0];
+        let operator2 = stackOperators[stackOperators.length - 1];
+        let operand1 = stackOperands[0]
+        let operand2 = stackOperands[0]
+
+
+        console.log(operator1, operator2);
     }
+
 
 
 
@@ -39,6 +51,7 @@ function calculateAlternativeSyntax(input) {
     console.log(stackOperands);
     console.log(stackOperators);
     console.log(result);
+    console.log(operator);
 }
 
 
