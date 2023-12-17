@@ -1,12 +1,16 @@
 function calculateAlternativeSyntax(input) {
     const stackOperators = [];
     const stackOperands = [];
+    const expression = []
 
     for (let i = 0; i < input.length; i++) {
         if (input[i] != ' ' && input[i] === '+' || input[i] === '-' || input[i] === '*' || input[i] === '/') {
             stackOperators.push(input[i]);
+            expression.push(input[i]);
         } else if (input[i] != ' ') {
             stackOperands.push(parseInt(input[i]));
+            expression.push(parseInt(input[i]));
+
         }
     }
 
@@ -79,6 +83,12 @@ function calculateAlternativeSyntax(input) {
 
     console.log(result);
 
+
+    console.log(stackOperands);
+    console.log(stackOperators);
+    console.log(expression);
+
+
 }
 
 
@@ -91,8 +101,5 @@ calculateAlternativeSyntax(expression2);
 calculateAlternativeSyntax(expression3);
 
 
-
-// console.log(stackOperands);
-// console.log(stackOperators);
 // console.log(result);
 // console.log(operator);
