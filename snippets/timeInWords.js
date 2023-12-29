@@ -36,7 +36,7 @@ function timeInWords(h, m) {
 
 }
 
-timeInWords(5, 45);
+timeInWords(6, 0o0);
 
 
 function timeInWords1(h, m) {

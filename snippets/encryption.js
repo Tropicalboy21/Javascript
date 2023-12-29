@@ -1,5 +1,10 @@
-function encryption(s) {
+function encryption(str) {
 
+    str = str.replace(/\s/g, '')
+
+    l = str.length;
+
+    console.log(l)
 
 }
 
