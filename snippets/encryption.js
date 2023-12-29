@@ -1,8 +1,9 @@
 function encryption(str) {
+
     let l = str.length;
-    let k = 0, row, column;
-    row = Math.floor(Math.sqrt(l));
-    column = Math.ceil(Math.sqrt(l));
+    let k = 0;
+    let row = Math.floor(Math.sqrt(l));
+    let column = Math.ceil(Math.sqrt(l));
     let encrypted = "";
 
     if (row * column < l) {
@@ -16,7 +17,6 @@ function encryption(str) {
             s[i][j] = 0;
         }
     }
-
 
     // Convert the string into a grid
     for (let i = 0; i < row; i++) {
