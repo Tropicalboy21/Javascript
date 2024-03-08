@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: right;
     align-items: center;
-    height: 80px;
+    height: var(--header-container-height);
 }
 
 .nav {
@@ -47,18 +47,20 @@ a:hover {
 }
 
 .homePage {
-    height: calc(100% - var(--header-container-height));
     display: flex;
     justify-content: end;
 }
 
 .img {
-    height: 600px;
+    height: 700px;
     width: 800px;
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+
 }
 
 .home-container {
+    height: calc(100% - var(--header-container-height));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,3 +69,10 @@ a:hover {
 .home-container h1 {
     font-size: 100px;
 }
+
+
+.home-container h3 {
+    font-size: 30px;
+}
+
+.title {}
