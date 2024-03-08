@@ -53,5 +53,17 @@ a:hover {
 }
 
 .img {
-    height: 625px;
+    height: 600px;
+    width: 800px;
+    object-fit: cover;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-container h1 {
+    font-size: 100px;
 }
