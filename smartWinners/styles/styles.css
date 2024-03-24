@@ -1,12 +1,17 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+
 /* Header */
 .header {
     display: flex;
     height: 80px;
     align-items: center;
+    justify-content: space-between;
 }
 
-.nav {
-    width: 100%;
+.component_1 {
     display: flex;
     align-items: center;
 }
@@ -17,11 +22,26 @@
 }
 
 .logout {
+    font-size: 14px;
     border: none;
-    color: blue;
+    color: #0061A3;
     background-color: rgba(240, 248, 255, 0);
 }
 
 p {
     margin: 0;
+}
+
+.social {
+    height: 20px;
+}
+
+.social img {
+    height: 100%;
+    margin-right: 10px;
+
+}
+
+b {
+    font-weight: 700;
 }
