@@ -1,0 +1,25 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "icon": "https://www.smart-winners.com/assets/images/section_1.svg",
+            "title": "YOU PICK",
+            "description": "It’s easy! Pick from over 40 official lottery games you wish to play. Then select your winning numbers.",
+            "link": "Play Now »"
+        },
+        {
+            "id": 2,
+            "icon": "https://www.smart-winners.com/assets/images/section_2.svg",
+            "title": "WE BUY",
+            "description": "Once you’ve picked your winning numbers we’ll purchase your ticket on your behalf.",
+            "link": "More Details »"
+        },
+        {
+            "id": 3,
+            "icon": "https://www.smart-winners.com/assets/images/section_3.svg",
+            "title": "YOU WIN!!!",
+            "description": "When you win, we’ll automatically credit your account the full value of your winnings.",
+            "link": "Withdraw My Winnings »"
+        }
+    ]
+}

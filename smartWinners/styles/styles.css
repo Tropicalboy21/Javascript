@@ -2,9 +2,6 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-
-
-
 /* Header */
 .header {
     position: relative;
@@ -124,4 +121,95 @@ b {
     background-image: url(https://www.smart-winners.com/images/banners/banners_3.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+
+/* section info */
+
+.info {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    height: 110px;
+}
+
+.cards_container {
+    height: 100%;
+    width: 1200px;
+    padding: 0 15px 0 15px;
+}
+
+#cardsInner {
+    display: flex;
+    height: 100%;
+    color: black;
+    justify-content: space-between;
+}
+
+.cardContainer {
+    display: flex;
+    height: 108px;
+    width: 378px;
+    color: black;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+}
+
+.icon_container {
+    margin-left: 5px;
+    height: 100%;
+    width: 70px;
+}
+
+.info_container {
+    padding: 5px;
+}
+
+.title_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_link {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #0061A3;
+}
+
+.card_link:hover {
+    text-decoration: underline;
+}
+
+.card_des {
+    padding-top: 10px;
+    color: #5F5F5F;
+}
+
+/* section lottery */
+
+.lottery {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+    height: 213px;
+}
+
+.lottery_container {
+    padding: 0 15px 0 15px;
+    width: 1200px;
+    height: 213px;
+}
+
+.lottery_title {
+    font-size: 24px;
+    font-weight: 500px;
+}
+
+#lotteryInner {
+    height: 100%;
+}
+
+.lottery_item {
+    border: 1px solid #0061A3;
 }
