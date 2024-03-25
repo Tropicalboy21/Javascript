@@ -207,9 +207,128 @@ b {
 }
 
 #lotteryInner {
-    height: 100%;
+    display: flex;
+    height: 189px;
+    justify-content: space-between;
+    align-items: end;
 }
 
 .lottery_item {
-    border: 1px solid #0061A3;
+    height: 145px;
+    width: 378px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+}
+
+.lot_top {
+    display: flex;
+    height: 80px;
+    padding: 5px 0 5px;
+}
+
+
+.lot_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 55px;
+    background-color: #0061A3;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.img_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 20px;
+    width: 141px;
+    height: 80px;
+    border: 1px solid #E0E0E0;
+    border-radius: 50%;
+}
+
+.lot_icon {
+    padding: 0 5px;
+}
+
+.lot_info {
+    padding: 20px 0
+}
+
+.lot_content {
+    display: flex;
+    color: black;
+    justify-content: space-evenly;
+}
+
+.lot_des {
+    width: 178px;
+    height: 17px;
+}
+
+.lot_price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #13902A;
+}
+
+.btn_play_now {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7D300;
+    height: 36px;
+    width: 171px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn_play_now:hover {
+    background-color: #daba06;
+}
+
+.timer_container {
+    display: flex;
+    align-items: center;
+}
+
+.lot_timer {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0px;
+    color: #FFFF;
+}
+
+/* section play */
+
+.play {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+.play_container {
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    padding: 0 15px;
+}
+
+.red_title_container {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+    height: 25px;
+    border-radius: 8px;
+    background-color: #F30000;
+}
+
+.red-title {
+    color: #FFFF;
 }

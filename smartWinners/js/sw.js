@@ -43,7 +43,7 @@ function init() {
         });
     };
 
-    loadLot
+    loadLot();
 
     function loadLot() {
         var request = new XMLHttpRequest();
@@ -53,7 +53,7 @@ function init() {
             var data = jsonData.data;
 
             data.forEach(lotData => {
-                var lot = new Lottery(lotData.id, lotData.img, lotData.icon, lotData.description, lotData.price);
+                var lot = new Lottery(lotData.id, lotData.img, lotData.icon, lotData.description, lotData.price, lotData.icon2);
                 lots.push(lot);
             });
 

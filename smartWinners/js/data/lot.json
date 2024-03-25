@@ -2,10 +2,27 @@
     "data": [
         {
             "id": 1,
-            "img": "",
-            "icon": "https://www.smart-winners.com/assets/images/section_1.svg",
-            "description": "It’s easy! Pick from over 40 official lottery games you wish to play. Then select your winning numbers.",
-            "price": "Play Now »"
+            "img": "https://www.smart-winners.com/images/lotteries/United_States_Mega_Millions/120_70.png",
+            "icon": "https://www.smart-winners.com/assets/shared/images/flags/United-States.svg",
+            "description": "MEGA MILLIONS",
+            "price": "$1 100 000 000",
+            "icon2": "https://www.smart-winners.com/assets/images/alarm-white.svg"
+        },
+        {
+            "id": 2,
+            "img": "https://www.smart-winners.com/images/lotteries/United_States_Powerball/120_70.png",
+            "icon": "https://www.smart-winners.com/assets/shared/images/flags/United-States.svg",
+            "description": "POWERBALL",
+            "price": "$800 000 000",
+            "icon2": "https://www.smart-winners.com/assets/images/alarm-white.svg"
+        },
+        {
+            "id": 3,
+            "img": "https://www.smart-winners.com/images/lotteries/United_States_Indiana_Hoosier_Lotto/120_70.png",
+            "icon": "https://www.smart-winners.com/assets/shared/images/flags/United-States.svg",
+            "description": "INDIANA HOOSIER LOTTO",
+            "price": "$750 000 000",
+            "icon2": "https://www.smart-winners.com/assets/images/alarm-white.svg"
         }
     ]
 }
