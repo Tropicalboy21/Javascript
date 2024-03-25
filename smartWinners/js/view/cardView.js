@@ -6,7 +6,7 @@ export class CardView {
         this.card = card;
 
         this.container = div({ id: 'cardContainer', className: 'cardContainer' }, this.parent);
-        this.imgContainer = div({ id: 'imgContainer', className: 'img_container' }, this.container);
+        this.imgContainer = div({ id: 'imgContainer', className: 'img-container' }, this.container);
         this.iconContainer = img({ id: 'iconContainer', className: 'icon_container', src: this.card.icon }, this.imgContainer);
         this.infoContainer = div({ id: 'infoContainer', className: 'info_container' }, this.container);
         this.titleWrapper = div({ id: 'titleWrapper', className: 'title_wrapper' }, this.infoContainer)

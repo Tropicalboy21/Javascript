@@ -311,8 +311,6 @@ b {
 }
 
 .play_container {
-    display: flex;
-    justify-content: center;
     width: 1200px;
     padding: 0 15px;
 }
@@ -331,4 +329,23 @@ b {
 
 .red-title {
     color: #FFFF;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.more {
+    display: flex;
+    justify-content: end;
+}
+
+.more a {
+    font-size: 18px;
+    font-weight: 500;
+    color: #0061A3;
+    text-decoration: none;
+}
+
+.more a:hover {
+    text-decoration: underline;
 }
