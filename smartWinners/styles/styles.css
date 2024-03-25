@@ -3,15 +3,34 @@ body {
 }
 
 
+
+
 /* Header */
 .header {
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: block;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.header_top {
+    width: 100%;
     display: flex;
     height: 80px;
-    align-items: center;
     justify-content: space-between;
 }
 
 .component_1 {
+    display: flex;
+    align-items: center;
+}
+
+.component_2 {
     display: flex;
     align-items: center;
 }
@@ -33,15 +52,76 @@ p {
 }
 
 .social {
+    width: 100px;
     height: 20px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .social img {
     height: 100%;
-    margin-right: 10px;
-
 }
 
 b {
     font-weight: 700;
+}
+
+.lang_select {
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.header_nav {
+    display: flex;
+    align-items: center;
+    height: 34px;
+    background-color: red;
+    border-radius: 10px;
+    justify-content: space-between;
+    margin: 10px 0 2px;
+}
+
+.nav_link {
+    color: white;
+}
+
+.navbar {
+    display: flex;
+}
+
+.nav_item {
+    border-right: 1px solid #FFFF;
+    padding: 0 25px 0 25px;
+}
+
+.nav_link:hover {
+    text-decoration: underline;
+}
+
+.account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 34px;
+    background-color: #0061A3;
+    border-radius: 10px;
+}
+
+
+/* section banner */
+
+.banner {
+    display: flex;
+    justify-content: center;
+}
+
+.banner_container {
+    height: 462px;
+    width: 1200px;
+    background-image: url(https://www.smart-winners.com/images/banners/banners_3.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
