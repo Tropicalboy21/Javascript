@@ -141,6 +141,8 @@ b {
 
 #cardsInner {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: 100%;
     color: black;
     justify-content: space-between;
@@ -336,6 +338,9 @@ b {
 
 
 #playInner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding: 0 50px;
 }
 
@@ -362,4 +367,11 @@ b {
 
 .more a:hover {
     text-decoration: underline;
+}
+
+
+.star {
+    position: absolute;
+    top: 10px;
+    right: 15px;
 }
