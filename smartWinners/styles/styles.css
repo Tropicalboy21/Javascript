@@ -334,6 +334,20 @@ b {
 
 }
 
+
+#playInner {
+    padding: 0 50px;
+}
+
+.play_item {
+    margin: 0 5px 15px;
+    width: 208px;
+    height: 270px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+}
+
+
 .more {
     display: flex;
     justify-content: end;

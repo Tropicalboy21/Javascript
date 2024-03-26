@@ -2,8 +2,10 @@
 
 import { Card } from "./model/card.js";
 import { Lottery } from "./model/lottery.js";
+import { Play } from "./model/play.js";
 import { CardView } from "./view/cardView.js";
 import { LotteryView } from "./view/lotteryView.js";
+import { PlayView } from "./view/playView.js";
 
 window.addEventListener('load', init, false);
 
@@ -11,9 +13,11 @@ function init() {
 
     let cardsContainer = document.getElementById("cardsInner");
     let lotContainer = document.getElementById("lotteryInner");
+    let playContainer = document.getElementById("playInner");
 
     let cards = [];
     let lots = [];
+    let plays = []
 
 
     loadCards();
@@ -67,6 +71,33 @@ function init() {
     function showLot() {
         lots.forEach(lot => {
             var lotView = new LotteryView(lotContainer, lot);
+        });
+    };
+
+    loadPlay();
+
+    function loadPlay() {
+        var request = new XMLHttpRequest();
+        request.open('GET', './js/data/play.json');
+        request.onload = function () {
+            var jsonData = JSON.parse(request.response);
+            var data = jsonData.data;
+
+            data.forEach(dataplay => {
+                var play = new Play(dataplay.id, dataplay.star, dataplay.img, dataplay.flag, dataplay.title, dataplay.prize);
+                plays.push(play);
+            });
+
+            showPlay();
+        };
+
+        request.send();
+    };
+
+
+    function showPlay() {
+        plays.forEach(play => {
+            var playView = new PlayView(playContainer, play);
         });
     };
 
