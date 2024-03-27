@@ -254,6 +254,11 @@ b {
     padding: 0 5px;
 }
 
+.lot_icon2 {
+    padding: 0 5px;
+}
+
+
 .lot_info {
     padding: 20px 0
 }
@@ -267,6 +272,8 @@ b {
 .lot_des {
     width: 178px;
     height: 17px;
+    font-weight: 500;
+
 }
 
 .lot_price {
@@ -318,7 +325,7 @@ b {
 }
 
 .red_title_container {
-    margin: 15px 0;
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -345,6 +352,7 @@ b {
 }
 
 .play_item {
+    position: relative;
     margin: 0 5px 15px;
     width: 208px;
     height: 270px;
@@ -352,6 +360,90 @@ b {
     border-radius: 8px;
 }
 
+.star {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.container_img {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    margin: 10px auto;
+    border: 2px solid #E0E0E0;
+    border-radius: 100%;
+}
+
+.play_img {
+    width: 92px;
+    height: 58px;
+    margin: auto;
+}
+
+.play_img img {
+    padding: 5px;
+    width: 100%;
+
+}
+
+.play_info {
+    padding: 10px 0;
+}
+
+.play_content {
+    display: flex;
+    justify-content: center;
+}
+
+.play_title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+.prize_container {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.prize {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.timer_container {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.play_timer {
+    color: #0061A3;
+}
+
+.btn_play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7D300;
+    height: 36px;
+    width: 171px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 12px auto;
+}
+
+.btn_play:hover {
+    background-color: #daba06;
+}
+
+.icon_play {
+    padding-left: 5px;
+}
 
 .more {
     display: flex;
@@ -363,15 +455,178 @@ b {
     font-weight: 500;
     color: #0061A3;
     text-decoration: none;
+    margin-right: 50px;
 }
 
 .more a:hover {
     text-decoration: underline;
 }
 
+/* section winners */
 
-.star {
-    position: absolute;
-    top: 10px;
-    right: 15px;
+.winners {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+.winner_container {
+    width: 1200px;
+    padding: 0 15px;
+}
+
+.winner-wapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.winner_col_one {
+    width: 775px;
+
+}
+
+.winner_col_two {
+    width: 380px;
+}
+
+.won {
+    padding: 20px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+}
+
+.winner_title {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.win_title {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 36px;
+    text-transform: uppercase;
+}
+
+.win_amount {
+    margin-left: 5px;
+    color: #0061A3;
+}
+
+.winner_info {
+    display: flex;
+}
+
+.winner_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.winner_result {
+    padding: 20px 0px 0px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.win_result {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+}
+
+.result_text {
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-left: 15px
+}
+
+.result_info {
+    margin-left: 10px;
+    margin-top: -3px;
+}
+
+.result_numbers img {
+    margin-right: 3px;
+}
+
+
+.result_numbers {
+    display: flex;
+}
+
+.result_date {
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 12px;
+    margin-top: 5px;
+}
+
+
+/* section questions */
+
+.questions {
+    margin: 75px 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+.questions_container {
+    width: 100%;
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.questions_inner {
+    padding: 0 15px;
+}
+
+.questions_title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    padding-left: 5px;
+    text-align: center;
+}
+
+.content_title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+
+.content_description {
+    width: 232px;
+    font-weight: 500;
+    line-height: 21px;
+}
+
+.content_more {
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-bottom: 14px;
+}
+
+.content_more a {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-right: 50px;
+    color: #0061A3;
+    text-decoration: none;
+}
+
+.content_more a:hover {
+    text-decoration: underline;
+
 }

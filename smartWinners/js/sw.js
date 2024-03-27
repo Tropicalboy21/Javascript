@@ -84,7 +84,7 @@ function init() {
             var data = jsonData.data;
 
             data.forEach(dataplay => {
-                var play = new Play(dataplay.id, dataplay.star, dataplay.img, dataplay.flag, dataplay.title, dataplay.prize);
+                var play = new Play(dataplay.id, dataplay.star, dataplay.img, dataplay.flag, dataplay.title, dataplay.prize, dataplay.icon);
                 plays.push(play);
             });
 
