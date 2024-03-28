@@ -491,6 +491,8 @@ b {
 }
 
 .won {
+    height: 358px;
+
     padding: 20px;
     border: 1px solid #E0E0E0;
     border-radius: 8px;
@@ -662,6 +664,65 @@ b {
     margin-top: 8px;
 }
 
+.winner_item {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+}
+
+.winners_content {
+    height: 100%;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo_container {
+    margin-left: 14px;
+    align-items: center;
+    display: flex;
+}
+
+.logo {
+    width: 76px;
+    height: 58px;
+}
+
+.date_container {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-top: 13px;
+}
+
+.winner_text {
+    display: flex;
+}
+
+.winner_title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-top: -5px;
+    margin-left: 5px;
+}
+
+.flag {
+    margin-top: -2px;
+    height: 15px;
+}
+
+.winners_prize {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 1.1px;
+    color: #5F5F5F;
+}
+
 /* section questions */
 
 .questions {
@@ -689,3 +750,6 @@ b {
     padding-left: 5px;
     text-align: center;
 }
+
+
+/* footer section */

@@ -3,9 +3,11 @@
 import { Card } from "./model/card.js";
 import { Lottery } from "./model/lottery.js";
 import { Play } from "./model/play.js";
+import { Winner } from "./model/winner.js"
 import { CardView } from "./view/cardView.js";
 import { LotteryView } from "./view/lotteryView.js";
 import { PlayView } from "./view/playView.js";
+import { WinnerView } from "./view/winnerView.js"
 
 window.addEventListener('load', init, false);
 
@@ -14,10 +16,13 @@ function init() {
     let cardsContainer = document.getElementById("cardsInner");
     let lotContainer = document.getElementById("lotteryInner");
     let playContainer = document.getElementById("playInner");
+    let winnerContainer = document.getElementById("winner_items");
+
 
     let cards = [];
     let lots = [];
-    let plays = []
+    let plays = [];
+    let winners = [];
 
 
     loadCards();
@@ -98,6 +103,33 @@ function init() {
     function showPlay() {
         plays.forEach(play => {
             var playView = new PlayView(playContainer, play);
+        });
+    };
+
+    loadWinner();
+
+    function loadWinner() {
+        var request = new XMLHttpRequest();
+        request.open('GET', './js/data/winners.json');
+        request.onload = function () {
+            var jsonData = JSON.parse(request.response);
+            var data = jsonData.data;
+
+            data.forEach(datawinner => {
+                var winner = new Winner(datawinner.id, datawinner.date, datawinner.logo, datawinner.flag, datawinner.title, datawinner.prize);
+                winners.push(winner);
+            });
+
+            showWinners();
+        };
+
+        request.send();
+    };
+
+
+    function showWinners() {
+        winners.forEach(winner => {
+            var winnerView = new WinnerView(winnerContainer, winner);
         });
     };
 
