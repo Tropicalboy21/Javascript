@@ -731,7 +731,6 @@ b {
     justify-content: center;
 }
 
-
 .questions_container {
     width: 100%;
     max-width: 1230px;
@@ -751,5 +750,229 @@ b {
     text-align: center;
 }
 
+.accordion {
+    margin: 15px auto;
+    max-width: 776px;
+}
+
+.collapsible {
+    background-color: white;
+    cursor: pointer;
+    padding: 18px 10px 8px 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    border-bottom: 0.9px solid #E0E0E0 !important;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #0061A3;
+}
+
+.collapsible:after {
+    content: '\2303';
+    color: #555;
+    float: right;
+    margin-left: 5px;
+    transform: rotate(180deg) !important;
+}
+
+.active:after {
+    content: '\2303';
+    color: #555;
+    float: right;
+    margin-left: 5px;
+    transform: rotate(0deg) !important;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    /* transition: max-height 0.2s ease-out; */
+    background-color: white;
+    border-bottom: 0.9px solid #E0E0E0 !important;
+}
+
+.content p {
+    margin: 18px 20px;
+    font-size: 15px;
+    color: #5F5F5F;
+    font-style: italic;
+    font-weight: 300;
+}
 
 /* footer section */
+
+.footer {
+    height: fit-content;
+    margin-bottom: 50px;
+    background: url(https://www.smart-winners.com/assets/images/stars.svg) repeat-x !important;
+}
+
+.footer_container {
+    width: 100%;
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.footer_inner {
+    padding: 136px 0px 0 0;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-wrapper {
+    display: flex;
+}
+
+.contact_whatsapp {
+    display: flex;
+}
+
+.contact_text {
+    padding-left: 8px;
+}
+
+.contact_title {
+    margin-top: -2px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+    text-decoration: none;
+    color: #0061A3
+}
+
+.contact_subtitle {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #5F5F5F;
+}
+
+.contact_title:hover {
+    text-decoration: underline;
+}
+
+.contact_telegram {
+    display: flex;
+    padding-left: 8px;
+}
+
+.contact_icon {
+    width: 37px;
+    height: 37px;
+    margin-right: 9px;
+}
+
+.contact_icon:last-child {
+    margin-right: 24px;
+}
+
+
+.footer_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin-top: 34px;
+    width: initial;
+}
+
+.column_two {
+    padding-left: 12px;
+}
+
+.col_one_links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    text-decoration: none;
+    color: #000;
+    padding-top: 5px;
+}
+
+.footer_link {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    text-decoration: none;
+    color: #000;
+    padding-top: 5px;
+}
+
+.footer_link:hover {
+    color: #0061A3;
+    text-decoration: underline;
+}
+
+.col_two_links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_text {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+    width: 250px;
+    margin: 5px 0px 0px -3px;
+}
+
+.footer_address {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 130%;
+    width: 250px;
+    margin: 3px 0px 0px -3px;
+}
+
+.footer_regulation {
+    width: 250px;
+    margin-left: -3px;
+}
+
+.payment_methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 152px;
+    margin: -6px 15px 23px 0px;
+}
+
+.payment_link {
+    padding-top: 5px;
+}
+
+.footer_security {
+    display: flex;
+    width: 152px;
+    margin: 10px 16px 0 0;
+}
+
+.time_load {
+    margin-top: 15px;
+    color: #a39e9e85;
+}
+
+.sec_img {
+    margin-right: 10px;
+}
+
+
+.security_title {
+    margin-top: 5px;
+    padding-right: 25px;
+}

@@ -14,14 +14,5 @@ export class WinnerView {
         this.flag = img({ id: "flag", className: "flag", src: this.winner.flag }, this.winnerText);
         this.winnerTitle = div({ id: "winnerTitle", className: "winner_title", innerHTML: this.winner.title }, this.winnerText);
         this.winnerPrize = div({ id: "winnerPrize", className: "winners_prize", innerHTML: this.winner.prize }, this.winnersContent);
-
-
-
-        // this.x = div({ id: "", className: "" }, this.);
-        // this.x = div({ id: "", className: "" }, this.);
-
-
-
-
     }
 }
