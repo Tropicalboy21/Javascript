@@ -213,6 +213,9 @@ b {
     height: 189px;
     justify-content: space-between;
     align-items: end;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .lottery_item {
