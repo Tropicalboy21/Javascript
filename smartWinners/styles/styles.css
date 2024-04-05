@@ -130,7 +130,6 @@ b {
     display: flex;
     justify-content: center;
     margin-top: 25px;
-    height: 110px;
 }
 
 .cards_container {
@@ -194,13 +193,13 @@ b {
     display: flex;
     justify-content: center;
     margin-top: 75px;
-    height: 213px;
+    /* height: 213px; */
 }
 
 .lottery_container {
     padding: 0 15px 0 15px;
     width: 1200px;
-    height: 213px;
+    /* height: 213px; */
 }
 
 .lottery_title {
@@ -210,7 +209,7 @@ b {
 
 #lotteryInner {
     display: flex;
-    height: 189px;
+    /* height: 189px; */
     justify-content: space-between;
     align-items: end;
     display: flex;
@@ -644,9 +643,17 @@ b {
     font-size: 26px;
     font-weight: bold;
     line-height: 22px;
+    margin-top: 5px;
+}
+
+.prize1 {
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 22px;
     color: #13902A;
     margin-top: 5px;
 }
+
 
 .tickets {
     display: flex;

@@ -1,0 +1,68 @@
+@media (max-width: 600px) {
+    .header_nav {
+        display: none;
+    }
+
+    .component_2 {
+        display: none;
+    }
+
+    .user {
+        display: none;
+    }
+
+    .header_top {
+        display: flex;
+        justify-content: center;
+    }
+
+    .banner_container {
+        width: 375.01px;
+        height: 179.69px;
+
+    }
+
+    #playInner {
+        padding: 0;
+        height: fit-content;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .play_item {
+        width: 155px;
+        height: 230px;
+        margin-bottom: 16px;
+    }
+
+    .container_img {
+        width: 80px;
+        height: 80px;
+        /* margin: 15px 0 0 0; */
+    }
+
+    .container_img img {
+        width: 100%;
+    }
+
+    .prize {
+        font-size: 18px;
+    }
+
+
+    .btn_play {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F7D300;
+        height: 36px;
+        width: 171px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 12px auto;
+    }
+
+}
