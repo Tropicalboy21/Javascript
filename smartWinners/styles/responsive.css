@@ -47,9 +47,16 @@
         width: 100%;
     }
 
+
+    .play_info {
+        padding: 0;
+    }
+
     .prize {
         font-size: 18px;
     }
+
+
 
 
     .btn_play {
@@ -57,12 +64,54 @@
         justify-content: center;
         align-items: center;
         background-color: #F7D300;
-        height: 36px;
-        width: 171px;
+        height: 32px;
+        width: 139px;
         border-radius: 8px;
         font-size: 16px;
         font-weight: 500;
-        margin: 12px auto;
+        margin: 5px auto;
     }
+
+    .winners {
+        height: auto;
+
+    }
+
+
+    .winner_container {
+        padding: 0;
+    }
+
+    .winner-wapper {
+        display: block;
+        width: auto;
+        padding: 0;
+    }
+
+
+    .won {
+        height: auto;
+        padding: 0;
+    }
+
+
+    .winner_col_one {
+        padding: 0 15px;
+        width: auto;
+    }
+
+    .winner_info {
+        display: block;
+    }
+
+
+    .winner_content {
+        padding: 0;
+    }
+
+
+    /* .win_result {
+        margin-left: 25px;
+    } */
 
 }
