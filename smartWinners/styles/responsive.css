@@ -3,6 +3,79 @@
         display: none;
     }
 
+    .header_logo {
+        height: 42.34px;
+    }
+
+
+    .header_logo img {
+        height: 100%
+    }
+
+    .menu-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+        /* border: 3px solid #fff; */
+    }
+
+    .hamburger_menu {
+        width: 20px;
+        height: 2px;
+        background: #F30000;
+        border-radius: 5px;
+        transition: all .5s ease-in-out;
+    }
+
+
+    .hamburger_menu::before,
+    .hamburger_menu::after {
+        content: '';
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        width: 20px;
+        height: 2px;
+        background: #F30000;
+        border-radius: 5px;
+        transition: all .5s ease-in-out;
+    }
+
+    .hamburger_menu::before {
+        transform: translateY(-6px);
+    }
+
+    .hamburger_menu::after {
+        transform: translateY(6px);
+    }
+
+    /* ANIMATION */
+    .menu-btn.open .hamburger_menu {
+        transform: translateX(-50px);
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .menu-btn.open .hamburger_menu::before {
+        transform: rotate(45deg) translate(35px, -35px);
+    }
+
+    .menu-btn.open .hamburger_menu::after {
+        transform: rotate(-45deg) translate(35px, 35px);
+    }
+
+
+    .component_1 {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+
     .component_2 {
         display: none;
     }
@@ -11,15 +84,63 @@
         display: none;
     }
 
+    .user_icon {
+        display: block;
+    }
+
+    .container {
+        width: auto;
+    }
+
     .header_top {
         display: flex;
         justify-content: center;
+        width: 360px;
     }
 
     .banner_container {
-        width: 375.01px;
+        width: 397px;
         height: 179.69px;
+    }
 
+    .info {
+        padding: 0 15px !important;
+    }
+
+    .cards_container {
+        height: 100%;
+        width: auto !important;
+        padding: 0;
+    }
+
+    .cardContainer {
+        width: auto;
+        margin-top: 10px;
+    }
+
+    .lottery_container {
+        padding: 0 15px;
+    }
+
+    .lottery_title {
+        font-size: 18px;
+    }
+
+    .lottery_item {
+        width: 356px;
+        margin-top: 10px;
+    }
+
+
+    .img_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px 5px;
+        width: 141px;
+        height: 80px;
+        border: 1px solid #E0E0E0;
+        border-radius: 50%;
     }
 
     #playInner {
@@ -59,6 +180,7 @@
 
 
 
+
     .btn_play {
         display: flex;
         justify-content: center;
@@ -70,6 +192,11 @@
         font-size: 16px;
         font-weight: 500;
         margin: 5px auto;
+    }
+
+    .more a {
+
+        margin-right: 19px;
     }
 
     .winners {
@@ -91,8 +218,17 @@
 
     .won {
         height: auto;
-        padding: 0;
+        padding: 5px !important;
     }
+
+    .content_description {
+        text-align: center;
+        width: 332px;
+        font-weight: 400;
+        line-height: 21px;
+    }
+
+
 
 
     .winner_col_one {
@@ -109,9 +245,120 @@
         padding: 0;
     }
 
+    .result_img {
+        width: 343px;
+        height: 171.5px;
+    }
+
+    .result_img img {
+        width: 100%;
+    }
+
 
     /* .win_result {
         margin-left: 25px;
     } */
+
+    .winner_col_two {
+        margin-top: 33px;
+        padding: 0 15px;
+        width: auto;
+    }
+
+    .footer {
+
+        width: auto;
+        height: 145.61px;
+        opacity: 0.86px;
+        background-image: url(https://s3-alpha-sig.figma.com/img/6504/6e96/8d87e6a7521a875da00b1eda057e1608?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DdnqTz9aKqIbvFgsWkEySe~uE2yLNbJfFkYjOyMPGfWpi2DkDY6cQ3K36-Y9ls9CIDzEvpbHoI-7w8AT~CHsSc9iroOa1YrwrUoBm73v4hoequBv5AjrG3yQ6VsGHwW9qMX-FEcp1-fQZ-7JhiQRdnVbiRSiFLMd3xKkSTG9fucgaO0Tlmxrw04j3TthHh4k3GMCsIIB6zR6H7TKy~FTrwdsZsWVuZfZQaDI4qBmRRW9xR~ooeYcilTPt5PJDH745iKXDOV2AienCU5dGAXrRPe5LYbFXA9FbQ6S4WPNzQQ0YTWgiJ4g4DK3hVTP~L4nTqhE1SD~ieQOEyJ2nnqmPA__);
+        background-size: cover !important;
+        padding: 0 15px;
+    }
+
+    .contact_text {
+        padding-left: 0px;
+    }
+
+
+    .column_two {
+        padding-left: 0;
+    }
+
+    .footer_text {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 120%;
+        width: auto;
+        margin: 5px 0px 0px 0px;
+    }
+
+    .footer_info {
+        padding: 0;
+    }
+
+    .footer_inner {
+        padding: 85px 0px 0 0;
+    }
+
+
+    .footer_info {
+        display: block;
+        justify-content: space-between;
+    }
+
+    .column_three {
+        flex-direction: row;
+    }
+
+    .footer_links {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer_address {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 130%;
+        width: auto;
+        margin: 10px 0px 0px 0px;
+    }
+
+    .footer_regulation {
+        display: none;
+        text-align: center;
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    .payment_methods {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 152px;
+        margin: 10px 15px 23px 0px;
+    }
+
+    .security_title {
+        margin-top: 0;
+        padding-right: 25px;
+    }
+
+
+
+    .contact {
+        width: auto;
+    }
+
+    .contact_right {
+        display: flex;
+    }
+
+    .contact_icon:last-child {
+        margin-right: 9px;
+    }
+
+    .footer_container {
+        padding: 0;
+    }
 
 }

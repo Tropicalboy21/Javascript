@@ -22,6 +22,65 @@ body {
     justify-content: space-between;
 }
 
+
+
+/* Hamburger menu */
+.menu-btn {
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 50px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    /* border: 3px solid #fff; */
+}
+
+.hamburger_menu {
+    width: 30px;
+    height: 3px;
+    background: #F30000;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.hamburger_menu::before,
+.hamburger_menu::after {
+    content: '';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 3px;
+    background: #F30000;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.hamburger_menu::before {
+    transform: translateY(-10px);
+}
+
+.hamburger_menu::after {
+    transform: translateY(10px);
+}
+
+/* ANIMATION */
+.menu-btn.open .hamburger_menu {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .hamburger_menu::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .hamburger_menu::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
 .component_1 {
     display: flex;
     align-items: center;
@@ -32,10 +91,17 @@ body {
     align-items: center;
 }
 
+
 .user {
     display: flex;
     align-items: center;
 }
+
+.user_icon {
+    display: none;
+}
+
+
 
 .logout {
     font-size: 14px;
@@ -118,7 +184,7 @@ b {
 .banner_container {
     height: 462px;
     width: 1200px;
-    background-image: url(https://www.smart-winners.com/images/banners/banners_3.jpg);
+    background-image: url(https://s3-alpha-sig.figma.com/img/c36b/e77c/d7487af3701169fbf2230c9fe68022d5?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AOIZS5UGlzWe3bIV2EIZibNbK3tMQdotcYXtbP5v9Z48He0CKLngimDrymjQLTkJJ2RpCayVWUmP~EVQItcG8gxfdwfZLrmNJxZl2pfqIaeAI1iSgJfg1RysOtbhZmUQU3Mkf077I0-zEvMTl9rmHeBnlJIG~ljK9xTa2Lxs8Up0B6IpSjPNBVdjQiz2uTMNwxaPJRskP9bznIHPiHEFhXeYYXbf-2lHQfM1mDXjgc1T5FyFgls9EwQDXZgx5C9tXLoLefJxSRRgrxoUpVi9yebhtU2rVvFb0mQz2HufkdKYwp~8Xb9fUniEK-nnXJCdSsUbDl20fTjp3rDzBDytXg__);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -916,7 +982,7 @@ b {
 
 .footer_link {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 21px;
     text-decoration: none;
     color: #000;
