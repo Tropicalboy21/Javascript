@@ -13,17 +13,33 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
+// const menuBtn = document.querySelector('.menu-btn');
+// var options = document.querySelector('.options');
+// let menuOpen = false;
+// menuBtn.addEventListener('click', () => {
+//     if (!menuOpen) {
+//         menuBtn.classList.add('open');
+//         menuOpen = true;
+//         options.style.maxHeight = "200px";
+//     } else {
+//         menuBtn.classList.remove('open');
+//         menuOpen = false;
+//         options.style.maxHeight = 0;
+//     }
+// });
+
 const menuBtn = document.querySelector('.menu-btn');
-var options = this.nextElementSibling;
+const options = document.querySelector('.options');
 let menuOpen = false;
+
 menuBtn.addEventListener('click', () => {
     if (!menuOpen) {
         menuBtn.classList.add('open');
         menuOpen = true;
-        options.style.maxHeight = content.scrollHeight + "px";
+        options.style.maxHeight = options.scrollHeight + "px";
     } else {
         menuBtn.classList.remove('open');
         menuOpen = false;
-        options.style.maxHeight = null;
+        options.style.maxHeight = 0;
     }
 });

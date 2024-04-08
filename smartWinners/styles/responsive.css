@@ -58,12 +58,25 @@
     }
 
     .options {
-        padding: 0 18px;
-        max-height: 0;
+        display: block;
         overflow: hidden;
-        /* transition: max-height 0.2s ease-out; */
+        max-height: 0;
+        transition: max-height 0.3s ease;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        z-index: 999;
+        width: 100%;
         background-color: white;
-        border-bottom: 0.9px solid #E0E0E0 !important;
+    }
+
+    .nav-opt {
+        padding: 35px !important;
+        display: block;
+    }
+
+    .menu-btn {
+        cursor: pointer;
     }
 
     /* ANIMATION */
@@ -85,7 +98,7 @@
     .component_1 {
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
 
     }
 

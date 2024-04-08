@@ -81,6 +81,12 @@ body {
     transform: rotate(-45deg) translate(35px, 35px);
 }
 
+.options {
+    display: none;
+}
+
+
+
 .component_1 {
     display: flex;
     align-items: center;
