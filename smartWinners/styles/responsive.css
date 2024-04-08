@@ -12,6 +12,10 @@
         height: 100%
     }
 
+    .header_top {
+        height: 65px;
+    }
+
     .menu-btn {
         display: flex;
         justify-content: center;
@@ -73,6 +77,7 @@
         width: 100%;
         display: flex;
         justify-content: space-evenly;
+
     }
 
 
@@ -88,6 +93,12 @@
         display: block;
     }
 
+    .user-sm {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 5px;
+    }
+
     .container {
         width: auto;
     }
@@ -99,7 +110,7 @@
     }
 
     .banner_container {
-        width: 397px;
+        width: 390px !important;
         height: 179.69px;
     }
 
