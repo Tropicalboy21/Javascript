@@ -13,15 +13,17 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
-
 const menuBtn = document.querySelector('.menu-btn');
+var options = this.nextElementSibling;
 let menuOpen = false;
 menuBtn.addEventListener('click', () => {
     if (!menuOpen) {
         menuBtn.classList.add('open');
         menuOpen = true;
+        options.style.maxHeight = content.scrollHeight + "px";
     } else {
         menuBtn.classList.remove('open');
         menuOpen = false;
+        options.style.maxHeight = null;
     }
 });

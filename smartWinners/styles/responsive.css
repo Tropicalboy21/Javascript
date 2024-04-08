@@ -57,6 +57,15 @@
         transform: translateY(6px);
     }
 
+    .options {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        /* transition: max-height 0.2s ease-out; */
+        background-color: white;
+        border-bottom: 0.9px solid #E0E0E0 !important;
+    }
+
     /* ANIMATION */
     .menu-btn.open .hamburger_menu {
         transform: translateX(-50px);
