@@ -68,11 +68,51 @@
         z-index: 999;
         width: 100%;
         background-color: white;
+        box-shadow: 0px 10px 10px #eee;
+    }
+
+    .account-btn {
+        width: 343px;
+        height: 52px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0;
+        background-color: #0061A3;
+        color: white;
+    }
+
+    .account-btn a {
+        font-weight: 600;
+        font-size: 20px;
+        padding: 10px 25px;
     }
 
     .nav-opt {
-        padding: 35px !important;
         display: block;
+        padding-bottom: 82px;
+    }
+
+    .opt {
+        display: flex;
+        align-items: center;
+        height: 44px;
+    }
+
+    .opt a {
+        font-weight: 600;
+        font-size: 20px;
+        padding: 10px 25px;
+        text-transform: capitalize;
+        border: none;
+        color: #000;
+
+    }
+
+    .opt a:hover {
+        text-decoration: underline !important;
     }
 
     .menu-btn {
