@@ -221,7 +221,8 @@ b {
     flex-wrap: wrap;
     height: 100%;
     color: black;
-    justify-content: space-between;
+    justify-content: center;
+
 }
 
 .cardContainer {
@@ -287,7 +288,7 @@ b {
 #lotteryInner {
     display: flex;
     /* height: 189px; */
-    justify-content: space-between;
+    justify-content: center;
     align-items: end;
     display: flex;
     flex-direction: row;
@@ -299,6 +300,7 @@ b {
     width: 378px;
     border: 1px solid #E0E0E0;
     border-radius: 8px;
+    margin-top: 10px;
 }
 
 .lot_top {
@@ -428,6 +430,7 @@ b {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0 50px;
+    justify-content: center;
 }
 
 .play_item {

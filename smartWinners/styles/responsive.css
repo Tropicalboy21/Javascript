@@ -188,7 +188,8 @@
 
     .cardContainer {
         width: auto;
-        margin-top: 10px;
+        margin: 10px 0 0;
+
     }
 
     .lottery_container {
@@ -432,6 +433,93 @@
 
     .footer_container {
         padding: 0;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .container {
+        position: relative;
+        padding: 0;
+    }
+
+    .header_top {
+        width: 100%;
+    }
+
+    .winners {
+        height: auto;
+
+    }
+
+
+    .winner_container {
+        padding: 0;
+    }
+
+    .winner-wapper {
+        display: block;
+        /* width: auto; */
+        padding: 0;
+    }
+
+
+    .won {
+        height: auto;
+        padding: 5px !important;
+    }
+
+    .content_description {
+        text-align: center;
+        width: 332px;
+        font-weight: 400;
+        line-height: 21px;
+    }
+
+
+
+
+    .winner_col_one {
+        padding: 0 15px;
+        width: auto;
+    }
+
+    .winner_info {
+        display: block;
+    }
+
+
+    .winner_content {
+        padding: 0;
+    }
+
+
+    .result_img img {
+        width: 100%;
+    }
+
+    .winner_result {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .winner_col_two {
+        margin-top: 33px;
+        padding: 0 15px;
+        width: auto;
+    }
+
+    .win_result {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .result_img {
+        display: block;
+        margin: 0 auto;
     }
 
 }
