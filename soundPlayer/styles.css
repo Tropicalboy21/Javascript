@@ -39,8 +39,11 @@ body {
 }
 
 .button {
+    color: white;
+    border: 1px solid white;
     font-size: 15px;
     height: 30px;
     width: 150px;
     border-radius: 5px;
+    background: none;
 }
