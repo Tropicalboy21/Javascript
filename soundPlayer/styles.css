@@ -47,3 +47,13 @@ body {
     border-radius: 5px;
     background: none;
 }
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.479);
+}
+
+.button:disabled {
+    color: rgb(186, 186, 186);
+    border: 1px solid rgb(186, 186, 186);
+    background: rgba(186, 186, 186, 0.341);
+}
