@@ -32,10 +32,15 @@ body {
 #timerDisplay {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    height: 50px;
+    height: auto;
     color: white;
-    font-size: 50px;
+    font-size: 190px;
     padding: 10px;
+}
+
+.buttons_contiainer {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .button {
