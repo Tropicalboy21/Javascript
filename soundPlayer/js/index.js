@@ -119,7 +119,7 @@ function updateTimerDisplay(seconds) {
   timerDisplay.textContent = minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
 
   // Update window title with the timer
-  document.title = minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds + " | Your Website Title";
+  document.title = minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
 }
 
 function playSound() {
