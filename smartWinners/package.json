@@ -9,6 +9,7 @@
   "author": "Lenin Ugalde",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^10.12.2",
     "node": "^18.20.2"
   }
 }
