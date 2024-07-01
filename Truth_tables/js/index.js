@@ -75,7 +75,7 @@ function writeTruthTable(truthData){
     truthData.forEach((v)=>{
         vals = [];
         keys = [];
-        table += '<tr';
+        table += '<tr>';
         console.log(v);
         for(i in v){
             vals.push(v[i]);
@@ -88,7 +88,7 @@ function writeTruthTable(truthData){
             eval(`var ${keys[i]} = ${vals[i]};`);
         }
         expresiones.forEach((expr) =>{
-            expr = eval(expr);
+            exprRes = eval(expr);
             table += `<td class="${exprRes}">`
             table += exprRes ? 'T': 'F';
             table += '</td>';
