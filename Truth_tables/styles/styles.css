@@ -4,6 +4,22 @@
     transition: all 0.2s ease-out;
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.sub_container{
+    max-width: 400px;
+}
+
+.title{
+    text-align: center;
+    font-size: 50px;
+    padding: 20px;
+}
+
+
 input[type=text]{
     padding: 5px 15px;
     border: 1px solid #AAA;
@@ -63,3 +79,17 @@ table{
     margin-top: 10px;
 }
 
+#resultado{
+    display: flex;
+    justify-content: center;
+}
+
+.button_contiainer{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+b {
+    font-weight: bold;
+}

@@ -8,17 +8,20 @@
     <title>Tablas de verdad</title>
 </head>
 <body>
-    <div>
-        <div class="filas">
-            <label>Preposiciones(separadas por coma)</label>
-            <input type="text" id="vars" value="a,b,c">
-        </div>
-        <div class="filas">
-            <label>Expresiones(separadas por coma)</label>
-            <input type="text" id="expresiones" value="!( a || b || c ), (!a && !b && !c)">
-        </div>
-        <div class="filas">
-            <button id="obtenerResultado">Generar tabla de verdad</button>
+    <div class="container">
+        <div class="sub_container">
+            <h1 class="title">Tablas de Verdad</h1>
+            <div class="filas">
+                <label><b>Preposiciones</b> (separadas por coma)</label>
+                <input type="text" id="vars" value="a,b,c">
+            </div>
+            <div class="filas">
+                <label><b>Expresiones</b> (separadas por coma)</label>
+                <input type="text" id="expresiones" value="!( a || b || c ), (!a && !b && !c)">
+            </div>
+            <div class="filas button_contiainer">
+                <button id="obtenerResultado">Generar tabla de verdad</button>
+            </div>
         </div>
     </div>
 
