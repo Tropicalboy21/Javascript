@@ -10,7 +10,7 @@
 }
 
 .sub_container{
-    max-width: 400px;
+    max-width: 380px;
 }
 
 .title{
@@ -28,7 +28,9 @@ input[type=text]{
 }
 
 .filas{
-    padding-bottom: 5px;
+    padding: 5px;
+    display: flex;
+    align-content: center;
 }
 
 .filas label {
