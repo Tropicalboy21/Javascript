@@ -5,27 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./imgs/favicon.png">
+
     <title>Tablas de verdad</title>
 </head>
 <body>
     <div class="container">
         <div class="sub_container">
-            <h1 class="title">Tablas de Verdad</h1>
+            <div class="moreInfo" id="moreInfo">
+                <div class="cerrar" id="cerrar">
+                    <img src="./imgs/cerrar.png" alt="">
+                </div>
+                <h1>instrucciones</h1>
+                <h2>creditos</h2>
+            </div>
+            <div class="header">
+                <div class="icon" id="moon">
+                    <img src="./imgs/moon.png" alt="moon" id="moonIcon">
+                </div>
+                <div>
+                    <h1 class="title">Tablas de Verdad</h1>
+                </div>
+                <div class="icon2" id="info">
+                    <img src="./imgs/info.png" alt="info" id="infoIcon">
+                </div>
+            </div>
             <div class="filas">
                 <label><b>Preposiciones<br></b> (separadas por coma)</label>
-                <input type="text" id="vars" value="a,b,c">
+                <input type="text" id="vars" value="P, Q">
             </div>
             <div class="filas">
                 <label><b>Expresiones<br></b> (separadas por coma)</label>
-                <input type="text" id="expresiones" value="!( a || b || c ), (!a && !b && !c)">
+                <input type="text" id="expresiones" value="P ∧ Q , P ∨ Q">
+            </div>
+            <div class="filas buttons">
+                <button id="agregarNegacion" class="btn">¬<span class="tooltiptext">Negación</span></button>
+                <button id="agregarConjuncion" class="btn">∧<span class="tooltiptext">Conjunción</span></button>
+                <button id="agregarDisyuncion" class="btn">∨<span class="tooltiptext">Disyunción</span></button>
+                <button id="agregarImplicacion" class="btn">⇒<span class="tooltiptext">Implicación</span></button>
+                <button id="agregarBicondicional" class="btn">⇔<span class="tooltiptext">Bicondicional</span></button>
             </div>
             <div class="filas button_contiainer">
                 <button id="obtenerResultado">Generar tabla de verdad</button>
+                <button id="limpiar">Limpiar</button>
             </div>
         </div>
     </div>
 
-    <div id="resultado"></div>
-    <script src="./js/index.js"></script>
+    <div class="t-container">
+        <div id="resultado" ></div>
+    </div>
+    <div class="footer">
+        <p>Copyright ⓒ 2024 | All rights reserved</p>
+    </div>
+    <script src="./js/index2.js"></script>
 </body>
 </html>
