@@ -1,4 +1,3 @@
-
 // Funcion que agrega las 
 function addSymbol(symbol) {
     const inputField = document.getElementById('expresiones');
@@ -36,7 +35,7 @@ document.getElementById('agregarBicondicional').addEventListener('click', functi
     addSymbol('⇔');
 });
 
-
+// Funcion Madre que genera el resultado
 document.getElementById('obtenerResultado').addEventListener('click', () => {
     vars = document.getElementById('vars').value.split(',').map(v => v.trim());
     expresiones = document.getElementById('expresiones').value.split(',').map(e => e.trim());
@@ -45,6 +44,7 @@ document.getElementById('obtenerResultado').addEventListener('click', () => {
     writeTruthTable(vars, expresiones, truthData);
 });
 
+// Funcion que genera las tablas
 function generateTruthTable(vars) {
     let truthData = [];
     let numRows = Math.pow(2, vars.length);
@@ -60,6 +60,7 @@ function generateTruthTable(vars) {
     return truthData;
 }
 
+// Funcion que escribe las tablas
 function writeTruthTable(vars, expresiones, truthData) {
     let table = '<table cellpadding=0 cellspacing=0>';
     
@@ -94,6 +95,7 @@ function writeTruthTable(vars, expresiones, truthData) {
     document.getElementById('resultado').innerHTML = table;
 }
 
+// Funcion que traduce los simbolos a texto
 function translateSymbols(expr) {
     const symbolMap = {
         '¬': '!',
@@ -120,6 +122,7 @@ function translateSymbols(expr) {
     
 }
 
+// Funcion que evalua las expresiones
 function evalExpression(expr, row) {
     expr = translateSymbols(expr);
 
@@ -132,7 +135,7 @@ function evalExpression(expr, row) {
     return eval(expr);
 }
 
-// ventana info
+// Ventana info
 document.getElementById('info').addEventListener('click', displayMoreInfo);
 
 function displayMoreInfo(){
@@ -140,10 +143,9 @@ function displayMoreInfo(){
 
     if (moreInfo.style.display === "none") {
         moreInfo.style.display = "block";
-      } else {
+    } else {
         moreInfo.style.display = "none";
-      }
-    
+    }
 }
 
 document.getElementById('cerrar').addEventListener('click', hideMoreInfo);
@@ -155,7 +157,6 @@ function hideMoreInfo(){
     
 }
 
-
 // Funcion Limpiar
 function limpiar() {
     document.getElementById('vars').value = '';
@@ -165,31 +166,29 @@ function limpiar() {
 
 document.getElementById('limpiar').addEventListener('click', limpiar);
 
-
 // Dark mode
 document.getElementById('moon').addEventListener('click', myFunction);
 
 function myFunction() {
     var element = document.body;
-    element.classList.toggle("dark-mode");
-
-
     var input1 = document.getElementById('vars')
     var input2 = document.getElementById('expresiones')
-
-    input1.classList.toggle("input-dark");
-    input2.classList.toggle("input-dark");
-
     var button1 = document.getElementById('agregarNegacion');
     var button2 = document.getElementById('agregarConjuncion');
     var button3 = document.getElementById('agregarDisyuncion');
     var button4 = document.getElementById('agregarImplicacion');
     var button5 = document.getElementById('agregarBicondicional');
     var button6 = document.getElementById('agregarExclusiva');
-
     var btn_obtenerResultado = document.getElementById('obtenerResultado');
     var limpiar = document.getElementById('limpiar');
+    var moon = document.getElementById('moonIcon');
+    var info = document.getElementById('infoIcon')
+    var cerrar = document.getElementById('cerrar')
+    var moreInfo = document.getElementById('moreInfo');
 
+    element.classList.toggle("dark-mode");
+    input1.classList.toggle("input-dark");
+    input2.classList.toggle("input-dark");
     button1.classList.toggle("button-dark");
     button2.classList.toggle("button-dark");
     button3.classList.toggle("button-dark");
@@ -198,20 +197,9 @@ function myFunction() {
     button6.classList.toggle("button-dark");
     btn_obtenerResultado.classList.toggle("button-dark");
     limpiar.classList.toggle("button-dark");
-
-
-    var moon = document.getElementById('moonIcon');
-    var info = document.getElementById('infoIcon')
-    var cerrar = document.getElementById('cerrar')
-
-
     moon.classList.toggle("moon-dark");
     info.classList.toggle("moon-dark");
     cerrar.classList.toggle("cerrar-dark");
-
-
-    var moreInfo = document.getElementById('moreInfo');
-
     moreInfo.classList.toggle("moreInfo-dark");
 }
 
