@@ -1,3 +1,5 @@
+
+// Funcion que agrega las 
 function addSymbol(symbol) {
     const inputField = document.getElementById('expresiones');
     const cursorPosition = inputField.selectionStart; // Get current cursor position
@@ -20,6 +22,10 @@ document.getElementById('agregarConjuncion').addEventListener('click', function(
 
 document.getElementById('agregarDisyuncion').addEventListener('click', function() {
     addSymbol('∨');
+});
+
+document.getElementById('agregarExclusiva').addEventListener('click', function() {
+    addSymbol('⊻');
 });
 
 document.getElementById('agregarImplicacion').addEventListener('click', function() {
@@ -93,6 +99,7 @@ function translateSymbols(expr) {
         '¬': '!',
         '∧': '&&',
         '∨': '||',
+        '⊻': '!=',
         '⇒': 'implies',
         '⇔': '==='
     };
@@ -125,7 +132,7 @@ function evalExpression(expr, row) {
     return eval(expr);
 }
 
-// more info section
+// ventana info
 document.getElementById('info').addEventListener('click', displayMoreInfo);
 
 function displayMoreInfo(){
@@ -159,7 +166,7 @@ function limpiar() {
 document.getElementById('limpiar').addEventListener('click', limpiar);
 
 
-// dark mode
+// Dark mode
 document.getElementById('moon').addEventListener('click', myFunction);
 
 function myFunction() {
@@ -178,6 +185,7 @@ function myFunction() {
     var button3 = document.getElementById('agregarDisyuncion');
     var button4 = document.getElementById('agregarImplicacion');
     var button5 = document.getElementById('agregarBicondicional');
+    var button6 = document.getElementById('agregarExclusiva');
 
     var btn_obtenerResultado = document.getElementById('obtenerResultado');
     var limpiar = document.getElementById('limpiar');
@@ -187,6 +195,7 @@ function myFunction() {
     button3.classList.toggle("button-dark");
     button4.classList.toggle("button-dark");
     button5.classList.toggle("button-dark");
+    button6.classList.toggle("button-dark");
     btn_obtenerResultado.classList.toggle("button-dark");
     limpiar.classList.toggle("button-dark");
 
@@ -204,6 +213,9 @@ function myFunction() {
     var moreInfo = document.getElementById('moreInfo');
 
     moreInfo.classList.toggle("moreInfo-dark");
-
-
 }
+
+// copyright 
+const d = new Date();
+let year = d.getFullYear();
+document.getElementById("year").innerHTML = year;

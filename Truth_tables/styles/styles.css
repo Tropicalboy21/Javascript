@@ -34,6 +34,52 @@ body {
     display: none;
 }
 
+.info-container{
+    margin: 15px;
+}
+
+.instrucciones h1 {
+    font-size: 19px;
+    padding: 10px;
+}
+
+.instrucciones p {
+    padding: 10px;
+}
+
+.instrucciones{
+    margin-bottom: 10px;
+}
+
+.creditos h1 {
+    font-size: 19px;
+    padding: 10px;
+}
+
+.creditos p {
+    padding: 10px;
+}
+
+.links a{
+    color: #36c;
+    text-decoration: none;
+    display: block;
+    padding-bottom: 3px;
+}
+
+.links a:hover{
+    text-decoration: underline;
+}
+
+p a {
+    color: #36c;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
 .moreInfo-dark{
     background-color: black;
 }
