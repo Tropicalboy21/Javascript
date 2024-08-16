@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>three.js webgl - instanced particles - billboards - colors</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<link type="text/css" rel="stylesheet" href="main.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -12,6 +16,8 @@
 		<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - instanced circle billboards - colors
 		<div id="notSupported" style="display:none">Sorry, your graphics card + browser does not support hardware instancing</div>
 	</div>
+
+    <div class="title"><h1>Lenin Ugalde</h1><h3>Software Engineer</h3></div>
 
 	<script id="vshader" type="x-shader/x-vertex">
 		precision highp float;
@@ -70,7 +76,7 @@
 		}
 	</script>
 
-    <script type="importmap">
+ <script type="importmap">
         {
             "imports": {
                 "three": "../build/three.module.js",
@@ -79,111 +85,137 @@
             }
         }
     </script>
-	<script type="module">
-		import * as THREE from 'three';
 
-		import Stats from 'three/addons/libs/stats.module.js';
 
-        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+<script type="module">
+	import * as THREE from 'three';
+	import Stats from 'three/addons/libs/stats.module.js';
+	import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-		let container, stats;
+	let container, stats;
+	let camera, scene, renderer, controls;
+	let geometry, material, mesh;
 
-		let camera, scene, renderer, controls;
-		let geometry, material, mesh;
+	const curves = [];
+	const numRows = 1700; // Number of rows of curves
+	const particlesPerRow = 10;
 
-		init();
+	init();
 
-		function init() {
+	function init() {
+		container = document.createElement('div');
+		document.body.appendChild(container);
 
-			container = document.createElement( 'div' );
-			document.body.appendChild( container );
+		camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 50000);
+// Position the camera at a specific point
+camera.position.set(20394, 5005, 2730);  // Set the x, y, z coordinates for the camera
 
-			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 50000 );
-			camera.position.z = 1400;
+// Make the camera look at a specific point in the scene
+camera.lookAt(new THREE.Vector3(10, 0, 8));  // Make the camera look at the origin or any other point
 
-			scene = new THREE.Scene();
+// Update the camera's projection matrix if necessary
+camera.updateProjectionMatrix();
 
-			const circleGeometry = new THREE.CircleGeometry( 1, 6 );
+		scene = new THREE.Scene();
 
-			geometry = new THREE.InstancedBufferGeometry();
-			geometry.index = circleGeometry.index;
-			geometry.attributes = circleGeometry.attributes;
+		// Create a grid of Bézier curves for the particle river
+		for (let i = 0; i < numRows; i++) {
+		const yOffset = (i / numRows) * 3 - 1; // Vary the y-position for each row
+		const xOffset = (i / numRows) * 2 - 1; // Vary the x-position for each row
 
-			const particleCount = 95000;
+		const curve = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-1 + xOffset, yOffset, Math.random() * 0.5 - 0.25), // Start point with xOffset
+        new THREE.Vector3(-0.5 + xOffset + Math.random(), yOffset + Math.random(), Math.random()), // Control point 1 with xOffset
+        new THREE.Vector3(0.5 + xOffset + Math.random(), yOffset + Math.random(), Math.random()), // Control point 2 with xOffset
+        new THREE.Vector3(1 + xOffset, yOffset, Math.random() * 0.5 - 0.25) // End point with xOffset
+    );
+    
+    curves.push(curve);
+}
+		geometry = new THREE.InstancedBufferGeometry();
+		const circleGeometry = new THREE.CircleGeometry(1, 6);
+		geometry.index = circleGeometry.index;
+		geometry.attributes = circleGeometry.attributes;
 
-			const translateArray = new Float32Array( particleCount * 3 );
+		const totalParticles = numRows * particlesPerRow;
+		const translateArray = new Float32Array(totalParticles * 3);
 
-			for ( let i = 0, i3 = 0, l = particleCount; i < l; i ++, i3 += 3 ) {
-
-				translateArray[ i3 + 0 ] = Math.random() * 2 - 1;
-				translateArray[ i3 + 1 ] = Math.random() * 2 - 1;
-				translateArray[ i3 + 2 ] = Math.random() * 2 - 1;
-
+		let index = 0;
+		for (let i = 0; i < numRows; i++) {
+			for (let j = 0; j < particlesPerRow; j++) {
+				const t = j / particlesPerRow;
+				const position = curves[i].getPoint(t);
+				translateArray[index++] = position.x;
+				translateArray[index++] = position.y;
+				translateArray[index++] = position.z;
 			}
-
-			geometry.setAttribute( 'translate', new THREE.InstancedBufferAttribute( translateArray, 3 ) );
-
-			material = new THREE.RawShaderMaterial( {
-				uniforms: {
-					'map': { value: new THREE.TextureLoader().load( 'textures/sprites/circle.png' ) },
-					'time': { value: 0.0 }
-				},
-				vertexShader: document.getElementById( 'vshader' ).textContent,
-				fragmentShader: document.getElementById( 'fshader' ).textContent,
-				depthTest: true,
-				depthWrite: true
-			} );
-
-			mesh = new THREE.Mesh( geometry, material );
-			mesh.scale.set( 10000, 5000, 5000 );
-			scene.add( mesh );
-
-			renderer = new THREE.WebGLRenderer();
-			renderer.setPixelRatio( window.devicePixelRatio );
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			renderer.setAnimationLoop( animate );
-			container.appendChild( renderer.domElement );
-
-			stats = new Stats();
-			container.appendChild( stats.dom );
-
-            controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true; // Enable smooth damping
-        controls.dampingFactor = 0.05;
-
-
-			window.addEventListener( 'resize', onWindowResize );
-
-			return true;
-
 		}
 
-		function onWindowResize() {
+		geometry.setAttribute('translate', new THREE.InstancedBufferAttribute(translateArray, 3));
 
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
+		material = new THREE.RawShaderMaterial({
+			uniforms: {
+				'map': { value: new THREE.TextureLoader().load('textures/sprites/circle.png') },
+				'time': { value: 0.0 }
+			},
+			vertexShader: document.getElementById('vshader').textContent,
+			fragmentShader: document.getElementById('fshader').textContent,
+			depthTest: true,
+			depthWrite: true
+		});
 
-			renderer.setSize( window.innerWidth, window.innerHeight );
+		mesh = new THREE.Mesh(geometry, material);
+		mesh.scale.set(50000, 5000, 5000);
+		scene.add(mesh);
 
+		renderer = new THREE.WebGLRenderer();
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		renderer.setAnimationLoop(animate);
+		container.appendChild(renderer.domElement);
+
+		// stats = new Stats();
+		// container.appendChild(stats.dom);
+
+		controls = new OrbitControls(camera, renderer.domElement);
+		controls.enableDamping = true;
+		controls.dampingFactor = 0.05;
+
+		window.addEventListener('resize', onWindowResize);
+	}
+
+	function onWindowResize() {
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		renderer.setSize(window.innerWidth, window.innerHeight);
+	}
+
+	function animate() {
+		const time = performance.now() * 0.0002;
+
+		const translateArray = geometry.attributes.translate.array;
+		let index = 0;
+
+		for (let i = 0; i < numRows; i++) {
+			for (let j = 0; j < particlesPerRow; j++) {
+				// Update particle positions along the Bézier curve
+				const t = (j / particlesPerRow + time * 0.1) % 1;
+				const position = curves[i].getPoint(t);
+				translateArray[index++] = position.x;
+				translateArray[index++] = position.y;
+				translateArray[index++] = position.z;
+			}
 		}
 
-		function animate() {
+		geometry.attributes.translate.needsUpdate = true;
 
-			const time = performance.now() * 0.0005;
+		material.uniforms['time'].value = time;
 
-			material.uniforms[ 'time' ].value = time;
-
-			// mesh.rotation.x = time * 0.2;
-			// mesh.rotation.y = time * 0.4;
-            controls.update();
-
-			renderer.render( scene, camera );
-
-			stats.update();
-
-		}
-
-	</script>
+		controls.update();
+		renderer.render(scene, camera);
+		// stats.update();
+	}
+</script>
 
 </body>
-</html>
+</html> 

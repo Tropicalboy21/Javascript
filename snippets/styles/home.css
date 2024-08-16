@@ -66,6 +66,11 @@ a:hover {
     justify-content: center;
 }
 
+title{
+    width: auto;
+    font-family: ;
+}
+
 .home-container h1 {
     font-size: 100px;
 }

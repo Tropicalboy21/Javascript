@@ -1,0 +1,593 @@
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>three.js webgl - instanced particles - billboards - colors</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+	<div id="info">
+		<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - instanced circle billboards - colors
+		<div id="notSupported" style="display:none">Sorry, your graphics card + browser does not support hardware instancing</div>
+	</div>
+
+	<script id="vshader" type="x-shader/x-vertex">
+		precision highp float;
+		uniform mat4 modelViewMatrix;
+		uniform mat4 projectionMatrix;
+		uniform float time;
+
+		attribute vec3 position;
+		attribute vec2 uv;
+		attribute vec3 translate;
+
+		varying vec2 vUv;
+		varying float vScale;
+
+		void main() {
+
+			vec4 mvPosition = modelViewMatrix * vec4( translate, 1.0 );
+			vec3 trTime = vec3(translate.x + time,translate.y + time,translate.z + time);
+			float scale =  sin( trTime.x * 2.1 ) + sin( trTime.y * 3.2 ) + sin( trTime.z * 4.3 );
+			vScale = scale;
+			scale = scale * 10.0 + 10.0;
+			mvPosition.xyz += position * scale;
+			vUv = uv;
+			gl_Position = projectionMatrix * mvPosition;
+
+		}
+	</script>
+	<script id="fshader" type="x-shader/x-fragment">
+		precision highp float;
+
+		uniform sampler2D map;
+
+		varying vec2 vUv;
+		varying float vScale;
+
+		// HSL to RGB Convertion helpers
+		vec3 HUEtoRGB(float H){
+			H = mod(H,1.0);
+			float R = abs(H * 6.0 - 3.0) - 1.0;
+			float G = 2.0 - abs(H * 6.0 - 2.0);
+			float B = 2.0 - abs(H * 6.0 - 4.0);
+			return clamp(vec3(R,G,B),0.0,1.0);
+		}
+
+		vec3 HSLtoRGB(vec3 HSL){
+			vec3 RGB = HUEtoRGB(HSL.x);
+			float C = (1.0 - abs(2.0 * HSL.z - 1.0)) * HSL.y;
+			return (RGB - 0.5) * C + HSL.z;
+		}
+
+		void main() {
+			vec4 diffuseColor = texture2D( map, vUv );
+			gl_FragColor = vec4( diffuseColor.xyz * HSLtoRGB(vec3(vScale/5.0, 1.0, 0.5)), diffuseColor.w );
+
+			if ( diffuseColor.w < 0.5 ) discard;
+		}
+	</script>
+
+ <script type="importmap">
+        {
+            "imports": {
+                "three": "../build/three.module.js",
+                "three/addons/": "./jsm/",
+                "three/addons/controls/OrbitControls": "https://threejs.org/examples/jsm/controls/OrbitControls.js"
+            }
+        }
+    </script>
+
+<!--
+	<script type="module">
+		import * as THREE from 'three';
+
+		import Stats from 'three/addons/libs/stats.module.js';
+
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+
+		const flowDirection = new THREE.Vector3(1, 0, 0); // Flow along the x-axis
+
+		let container, stats;
+
+		let camera, scene, renderer, controls;
+		let geometry, material, mesh;
+
+		init();
+
+		function init() {
+
+			container = document.createElement( 'div' );
+			document.body.appendChild( container );
+
+			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 50000 );
+			camera.position.z = 1400;
+
+			scene = new THREE.Scene();
+
+			const circleGeometry = new THREE.CircleGeometry( 1, 6 );
+
+			geometry = new THREE.InstancedBufferGeometry();
+			geometry.index = circleGeometry.index;
+			geometry.attributes = circleGeometry.attributes;
+
+			const particleCount = 95000;
+
+			const translateArray = new Float32Array( particleCount * 3 );
+
+			for ( let i = 0, i3 = 0, l = particleCount; i < l; i ++, i3 += 3 ) {
+
+				translateArray[ i3 + 0 ] = Math.random() * 2 - 1;
+				translateArray[ i3 + 1 ] = Math.random() * 2 - 1;
+				translateArray[ i3 + 2 ] = Math.random() * 2 - 1;
+
+			}
+
+			geometry.setAttribute( 'translate', new THREE.InstancedBufferAttribute( translateArray, 3 ) );
+
+			material = new THREE.RawShaderMaterial( {
+				uniforms: {
+					'map': { value: new THREE.TextureLoader().load( 'textures/sprites/circle.png' ) },
+					'time': { value: 0.0 }
+				},
+				vertexShader: document.getElementById( 'vshader' ).textContent,
+				fragmentShader: document.getElementById( 'fshader' ).textContent,
+				depthTest: true,
+				depthWrite: true
+			} );
+
+			mesh = new THREE.Mesh( geometry, material );
+			mesh.scale.set( 100, 5000, 5000 );
+			scene.add( mesh );
+
+			renderer = new THREE.WebGLRenderer();
+			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			renderer.setAnimationLoop( animate );
+			container.appendChild( renderer.domElement );
+
+			stats = new Stats();
+			container.appendChild( stats.dom );
+
+            controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true; // Enable smooth damping
+        controls.dampingFactor = 0.05;
+
+
+			window.addEventListener( 'resize', onWindowResize );
+
+			return true;
+
+		}
+
+		function onWindowResize() {
+
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+
+			renderer.setSize( window.innerWidth, window.innerHeight );
+
+		}
+
+		const minX = -1; // Left boundary (particles start here)
+const maxX = 1;  // Right boundary (particles reset when they reach here)
+
+function animate() {
+
+    const time = performance.now() * 0.0005;
+
+    const translateArray = geometry.attributes.translate.array;
+
+    for (let i = 0; i < translateArray.length; i += 3) {
+        // Move the particle along the x-axis
+        translateArray[i] += flowDirection.x * 0.01;
+
+        // Reset particle to the left when it goes beyond the right boundary
+        if (translateArray[i] > maxX) {
+            translateArray[i] = minX;
+
+            // Optionally, randomize the y and z positions to add more variation
+            translateArray[i + 1] = Math.random() * 2 - 1; // Random y position
+            translateArray[i + 2] = Math.random() * 2 - 1; // Random z position
+        }
+    }
+
+    geometry.attributes.translate.needsUpdate = true; // Inform Three.js that translateArray has been updated
+
+    material.uniforms['time'].value = time;
+
+    controls.update();
+    renderer.render(scene, camera);
+    stats.update();
+}
+		
+
+	</script> -->
+
+	
+<!-- 
+	<script type="module">
+		import * as THREE from 'three';
+	
+		import Stats from 'three/addons/libs/stats.module.js';
+		import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+	
+		const flowDirection = new THREE.Vector3(1, 0, 0); // Flow along the x-axis
+	
+		let container, stats;
+	
+		let camera, scene, renderer, controls;
+		let geometry, material, mesh;
+	
+		const bezierControlPoints = [
+			new THREE.Vector3(-1, -1, -1), // P0
+			new THREE.Vector3(-0.5, 1, 0), // P1
+			new THREE.Vector3(0.5, -1, 0), // P2
+			new THREE.Vector3(1, 1, 1) // P3
+		];
+	
+		init();
+	
+		function init() {
+			container = document.createElement('div');
+			document.body.appendChild(container);
+	
+			camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 50000);
+			camera.position.z = 1400;
+	
+			scene = new THREE.Scene();
+	
+			const circleGeometry = new THREE.CircleGeometry(1, 6);
+	
+			geometry = new THREE.InstancedBufferGeometry();
+			geometry.index = circleGeometry.index;
+			geometry.attributes = circleGeometry.attributes;
+	
+			const particleCount = 100;
+			const translateArray = new Float32Array(particleCount * 3);
+			const progressArray = new Float32Array(particleCount); // Array to store progress along the curve for each particle
+	
+			for (let i = 0, i3 = 0, l = particleCount; i < l; i++, i3 += 3) {
+				translateArray[i3 + 0] = bezierControlPoints[0].x;
+				translateArray[i3 + 1] = bezierControlPoints[0].y;
+				translateArray[i3 + 2] = bezierControlPoints[0].z;
+				progressArray[i] = Math.random(); // Randomize the initial progress of each particle
+			}
+	
+			geometry.setAttribute('translate', new THREE.InstancedBufferAttribute(translateArray, 3));
+			geometry.setAttribute('progress', new THREE.InstancedBufferAttribute(progressArray, 3)); // Progress attribute
+	
+			material = new THREE.RawShaderMaterial({
+				uniforms: {
+					'map': { value: new THREE.TextureLoader().load('textures/sprites/circle.png') },
+					'time': { value: 0.0 }
+				},
+				vertexShader: document.getElementById('vshader').textContent,
+				fragmentShader: document.getElementById('fshader').textContent,
+				depthTest: true,
+				depthWrite: true
+			});
+	
+			mesh = new THREE.Mesh(geometry, material);
+			mesh.scale.set(1000, 5000, 5000);
+			scene.add(mesh);
+	
+			renderer = new THREE.WebGLRenderer();
+			renderer.setPixelRatio(window.devicePixelRatio);
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setAnimationLoop(animate);
+			container.appendChild(renderer.domElement);
+	
+			stats = new Stats();
+			container.appendChild(stats.dom);
+	
+			controls = new OrbitControls(camera, renderer.domElement);
+			controls.enableDamping = true;
+			controls.dampingFactor = 0.05;
+	
+			window.addEventListener('resize', onWindowResize);
+	
+			return true;
+		}
+	
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+		}
+	
+		function getBezierPoint(t, p0, p1, p2, p3) {
+			const oneMinusT = 1 - t;
+			return p0.clone().multiplyScalar(oneMinusT * oneMinusT * oneMinusT)
+				.add(p1.clone().multiplyScalar(3 * oneMinusT * oneMinusT * t))
+				.add(p2.clone().multiplyScalar(3 * oneMinusT * t * t))
+				.add(p3.clone().multiplyScalar(t * t * t));
+		}
+	
+		function animate() {
+			const time = performance.now() * 0.0005;
+			const translateArray = geometry.attributes.translate.array;
+			const progressArray = geometry.attributes.progress.array;
+	
+			for (let i = 0, i3 = 0; i < progressArray.length; i++, i3 += 3) {
+				progressArray[i] += 0.001; // Move particles along the curve
+	
+				if (progressArray[i] > 1.0) {
+					progressArray[i] = 0.0; // Reset the particle's progress
+				}
+	
+				const pointOnCurve = getBezierPoint(progressArray[i], ...bezierControlPoints);
+	
+				translateArray[i3 + 0] = pointOnCurve.x;
+				translateArray[i3 + 1] = pointOnCurve.y;
+				translateArray[i3 + 2] = pointOnCurve.z;
+			}
+	
+			geometry.attributes.translate.needsUpdate = true;
+			material.uniforms['time'].value = time;
+	
+			controls.update();
+			renderer.render(scene, camera);
+			stats.update();
+		}
+	</script> -->
+
+
+<!-- 
+<script type="module">
+	import * as THREE from 'three';
+	import Stats from 'three/addons/libs/stats.module.js';
+	import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+	let container, stats;
+	let camera, scene, renderer, controls;
+	let geometry, material, mesh;
+
+	const curves = [];
+	const numRows = 20; // Number of rows of curves
+	const particlesPerRow = 1000;
+
+	init();
+
+	function init() {
+		container = document.createElement('div');
+		document.body.appendChild(container);
+
+		camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 50000);
+		camera.position.z = 1400;
+
+		scene = new THREE.Scene();
+
+		// Create a grid of Bézier curves for the particle river
+		for (let i = 0; i < numRows; i++) {
+			const yOffset = (i / numRows) * 2 - 1; // Vary the y-position for each row
+			const curve = new THREE.CubicBezierCurve3(
+				new THREE.Vector3(-1, yOffset, Math.random() * 0.5 - 0.25), // Start point
+				new THREE.Vector3(-0.5, yOffset + Math.random(), Math.random()), // Control point 1
+				new THREE.Vector3(0.5, yOffset + Math.random(), Math.random()), // Control point 2
+				new THREE.Vector3(1, yOffset, Math.random() * 0.5 - 0.25) // End point
+			);
+			curves.push(curve);
+		}
+
+		geometry = new THREE.InstancedBufferGeometry();
+		const circleGeometry = new THREE.CircleGeometry(1, 6);
+		geometry.index = circleGeometry.index;
+		geometry.attributes = circleGeometry.attributes;
+
+		const totalParticles = numRows * particlesPerRow;
+		const translateArray = new Float32Array(totalParticles * 3);
+
+		let index = 0;
+		for (let i = 0; i < numRows; i++) {
+			for (let j = 0; j < particlesPerRow; j++) {
+				const t = j / particlesPerRow;
+				const position = curves[i].getPoint(t);
+				translateArray[index++] = position.x;
+				translateArray[index++] = position.y;
+				translateArray[index++] = position.z;
+			}
+		}
+
+		geometry.setAttribute('translate', new THREE.InstancedBufferAttribute(translateArray, 3));
+
+		material = new THREE.RawShaderMaterial({
+			uniforms: {
+				'map': { value: new THREE.TextureLoader().load('textures/sprites/circle.png') },
+				'time': { value: 0.0 }
+			},
+			vertexShader: document.getElementById('vshader').textContent,
+			fragmentShader: document.getElementById('fshader').textContent,
+			depthTest: true,
+			depthWrite: true
+		});
+
+		mesh = new THREE.Mesh(geometry, material);
+		mesh.scale.set(100, 5000, 5000);
+		scene.add(mesh);
+
+		renderer = new THREE.WebGLRenderer();
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		renderer.setAnimationLoop(animate);
+		container.appendChild(renderer.domElement);
+
+		stats = new Stats();
+		container.appendChild(stats.dom);
+
+		controls = new OrbitControls(camera, renderer.domElement);
+		controls.enableDamping = true;
+		controls.dampingFactor = 0.05;
+
+		window.addEventListener('resize', onWindowResize);
+	}
+
+	function onWindowResize() {
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		renderer.setSize(window.innerWidth, window.innerHeight);
+	}
+
+	function animate() {
+		const time = performance.now() * 0.0005;
+
+		const translateArray = geometry.attributes.translate.array;
+		let index = 0;
+
+		for (let i = 0; i < numRows; i++) {
+			for (let j = 0; j < particlesPerRow; j++) {
+				// Update particle positions along the Bézier curve
+				const t = (j / particlesPerRow + time * 0.1) % 1;
+				const position = curves[i].getPoint(t);
+				translateArray[index++] = position.x;
+				translateArray[index++] = position.y;
+				translateArray[index++] = position.z;
+			}
+		}
+
+		geometry.attributes.translate.needsUpdate = true;
+
+		material.uniforms['time'].value = time;
+
+		controls.update();
+		renderer.render(scene, camera);
+		stats.update();
+	}
+</script> -->
+
+<!-- <script type="module">
+
+
+
+
+	import * as THREE from 'three';
+	import Stats from 'three/addons/libs/stats.module.js';
+	import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+	let container, stats;
+	let camera, scene, renderer, controls;
+	let geometry, material, mesh;
+
+	const curves = [];
+	const numRows = 20; // Number of rows of curves
+	const particlesPerRow = 2000; // Increase particle count per row
+
+	init();
+
+	function init() {
+		container = document.createElement('div');
+		document.body.appendChild(container);
+
+		camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 50000);
+		camera.position.z = 1400;
+
+		scene = new THREE.Scene();
+
+		// Create a grid of Bézier curves for the particle river
+		for (let i = 0; i < numRows; i++) {
+			const yOffset = (i / numRows) * 2 - 1; // Vary the y-position for each row
+			const curve = new THREE.CubicBezierCurve3(
+				new THREE.Vector3(-1, yOffset, Math.random() * 0.5 - 0.25), // Start point
+				new THREE.Vector3(-0.5, yOffset + Math.random(), Math.random()), // Control point 1
+				new THREE.Vector3(0.5, yOffset + Math.random(), Math.random()), // Control point 2
+				new THREE.Vector3(1, yOffset, Math.random() * 0.5 - 0.25) // End point
+			);
+			curves.push(curve);
+		}
+
+		geometry = new THREE.InstancedBufferGeometry();
+		const circleGeometry = new THREE.CircleGeometry(1, 6);
+		geometry.index = circleGeometry.index;
+		geometry.attributes = circleGeometry.attributes;
+
+		const totalParticles = numRows * particlesPerRow;
+		const translateArray = new Float32Array(totalParticles * 3);
+		const sizeArray = new Float32Array(totalParticles);
+
+
+		const offsetMagnitude = 0.1;
+		let index = 0;
+		for (let i = 0; i < numRows; i++) {
+			for (let j = 0; j < particlesPerRow; j++) {
+				const t = j / particlesPerRow;
+				const position = curves[i].getPoint(t);
+				translateArray[index * 3] = position.x;
+				translateArray[index * 3 + 1] = position.y;
+				translateArray[index * 3 + 2] = position.z;
+				sizeArray[index] = Math.random() * 3 + 1; // Randomize size for organic look
+				index++;
+			}
+		}
+
+		geometry.setAttribute('translate', new THREE.InstancedBufferAttribute(translateArray, 3));
+		geometry.setAttribute('size', new THREE.InstancedBufferAttribute(sizeArray, 1));
+
+		material = new THREE.RawShaderMaterial({
+			uniforms: {
+				'map': { value: new THREE.TextureLoader().load('textures/sprites/circle.png') },
+				'time': { value: 0.0 }
+			},
+			vertexShader: document.getElementById('vshader').textContent,
+			fragmentShader: document.getElementById('fshader').textContent,
+			depthTest: true,
+			depthWrite: true
+		});
+
+		mesh = new THREE.Mesh(geometry, material);
+		mesh.scale.set(100, 5000, 5000);
+		scene.add(mesh);
+
+		renderer = new THREE.WebGLRenderer();
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		renderer.setAnimationLoop(animate);
+		container.appendChild(renderer.domElement);
+
+		stats = new Stats();
+		container.appendChild(stats.dom);
+
+		controls = new OrbitControls(camera, renderer.domElement);
+		controls.enableDamping = true;
+		controls.dampingFactor = 0.05;
+
+		window.addEventListener('resize', onWindowResize);
+	}
+
+	function onWindowResize() {
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		renderer.setSize(window.innerWidth, window.innerHeight);
+	}
+
+	function animate() {
+		const time = performance.now() * 0.0005;
+
+		const translateArray = geometry.attributes.translate.array;
+		let index = 0;
+
+		for (let i = 0; i < numRows; i++) {
+			for (let j = 0; j < particlesPerRow; j++) {
+				const t = (j / particlesPerRow + time * 0.1) % 1;
+				const position = curves[i].getPoint(t);
+				translateArray[index * 3] = position.x;
+				translateArray[index * 3 + 1] = position.y;
+				translateArray[index * 3 + 2] = position.z;
+				index++;
+			}
+		}
+
+		geometry.attributes.translate.needsUpdate = true;
+		material.uniforms['time'].value = time;
+
+		controls.update();
+		renderer.render(scene, camera);
+		stats.update();
+	}
+</script>
+</body>
+</html> --> -->
