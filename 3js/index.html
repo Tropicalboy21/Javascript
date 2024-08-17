@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<link type="text/css" rel="stylesheet" href="main.css">
+	<link type="text/css" rel="stylesheet" href="reset.css">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +14,29 @@
 <body>
 
 	<div id="info">
-		<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - instanced circle billboards - colors
+		<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - particles river - colors
 		<div id="notSupported" style="display:none">Sorry, your graphics card + browser does not support hardware instancing</div>
 	</div>
 
-    <div class="title"><h1>Lenin Ugalde</h1><h3>Software Engineer</h3></div>
+	<div id="content-container">
+		<div class="section">
+			<div class="container">
+				<div class="title">
+					<div><h1>Lenin Ugalde</h1><h3>Software Engineer</h3></div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="container">
+				<div class="about-me">
+					<p class="txt">A software engineer experienced with the Design, Development, Maintenance, Test and Evaluation of High quality computer software, web and mobile applications, always learning and adapting to new technologies, exploring new creative and optimal solutions.</p>
+				</div>
+			</div>
+		</div>
+		<div class="section"></div>
+		<div class="section"></div>
+	</div>
+
 
 	<script id="vshader" type="x-shader/x-vertex">
 		precision highp float;
@@ -45,6 +64,7 @@
 
 		}
 	</script>
+
 	<script id="fshader" type="x-shader/x-fragment">
 		precision highp float;
 
@@ -76,7 +96,7 @@
 		}
 	</script>
 
- <script type="importmap">
+    <script type="importmap">
         {
             "imports": {
                 "three": "../build/three.module.js",
@@ -86,8 +106,7 @@
         }
     </script>
 
-
-<script type="module">
+    <script type="module">
 	import * as THREE from 'three';
 	import Stats from 'three/addons/libs/stats.module.js';
 	import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -215,7 +234,7 @@ camera.updateProjectionMatrix();
 		renderer.render(scene, camera);
 		// stats.update();
 	}
-</script>
-
+    </script>
+	<script src="index.js"></script>
 </body>
 </html> 

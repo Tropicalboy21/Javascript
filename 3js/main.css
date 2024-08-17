@@ -5,7 +5,9 @@ body {
 	font-family: Monospace;
 	font-size: 13px;
 	line-height: 24px;
-	overscroll-behavior: none;
+	font-family: "Montserrat", sans-serif !important;
+	/* overscroll-behavior: none; */
+	/* overflow: auto; */
 }
 
 a {
@@ -36,26 +38,49 @@ button {
 	pointer-events: none;
 	z-index: 1; /* TODO Solve this in HTML */
 	/* From https://css.glass */
-/* From https://css.glass */
-background: rgba(0, 0, 0, 0.46);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(10.6px);
--webkit-backdrop-filter: blur(10.6px);
-border: 1px solid rgba(0, 0, 0, 0.3);
+	/* From https://css.glass */
+	background: rgba(0, 0, 0, 0.46);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(10.6px);
+	-webkit-backdrop-filter: blur(10.6px);
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#content-container{
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	overflow-y: scroll;
+	height: 100vh;
+	/* z-index: 1;  */
+	transition: filter 2.9s ease;
+}
+
+.section {
+	height: 710px;
+	display: flex;
+	justify-content: center;
+}
+
+.container{
+	max-width: 1270px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .title {
-	top: 270px;
-	left: 50px;
-	font-family: "Montserrat", sans-serif;
-	background-color: none !important;
-	width: auto;
 	z-index: 1;
-	position: absolute;
-
+	width: 100%;
 }
 
+.blur-background {
+	backdrop-filter: blur(4px);
+	/* transition: filter 0.9s ease; */
+	
+}
 
 .title h1 {
     font-size: 100px;
@@ -67,7 +92,15 @@ border: 1px solid rgba(0, 0, 0, 0.3);
 .title h3 {
     font-size: 30px;
 	font-weight: 400;
+	padding-top: 15px;
+	padding-left: 8px;
 
+}
+
+.about-me {
+	text-align: center;
+	font-size: 22px;
+	width: 1100px;
 }
 
 
@@ -105,16 +138,16 @@ a, button, input, select {
 	background: rgba(0,0,0,0.7);
 }
 
-	#overlay button {
-		background: transparent;
-		border: 0;
-		border: 1px solid rgb(255, 255, 255);
-		border-radius: 4px;
-		color: #ffffff;
-		padding: 12px 18px;
-		text-transform: uppercase;
-		cursor: pointer;
-	}
+#overlay button {
+	background: transparent;
+	border: 0;
+	border: 1px solid rgb(255, 255, 255);
+	border-radius: 4px;
+	color: #ffffff;
+	padding: 12px 18px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
 
 #notSupported {
 	width: 50%;
