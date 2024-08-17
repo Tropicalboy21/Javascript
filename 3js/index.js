@@ -1,7 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', function() {});
-
-
+document.addEventListener('DOMContentLoaded', runTW);
 
 var i = 0;
 var txt = 'Hello World! I am Lenin Ugalde.';
@@ -9,10 +7,20 @@ var speed = 50;
 
 function typeWriter() {
     if (i < txt.length) {
-        document.getElementById("greating").innerHTML += txt.charAt(i);
+        document.getElementById("greeting").innerHTML += txt.charAt(i);
         i++;
         setTimeout(typeWriter, speed);
+    } else {
+        setTimeout(() => {
+            i = 0;
+            document.getElementById("greeting").innerHTML = "";
+            typeWriter();
+        }, 5000); 
     }
+}
+
+function runTW(){
+    typeWriter();
 }
 
 function scrollValue() {

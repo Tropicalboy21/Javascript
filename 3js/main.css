@@ -88,6 +88,28 @@ button {
 
 }
 
+#greeting {
+	font-size: 35px;
+	margin-bottom: 45px;
+}
+
+.header-container{
+	display: flex;
+	justify-content: center;
+}
+
+.header{
+	font-size: 50px;
+	font-weight: 700;
+    background: linear-gradient(180deg, #FFBD5A 25.07%, rgba(233, 0, 0, 0.7) 91.62%);
+	background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.txt-container{
+	width: 1100px;
+}
 
 .title h3 {
     font-size: 30px;
@@ -97,10 +119,27 @@ button {
 
 }
 
+.divider-container{
+	display: flex;
+	justify-content: center;
+	margin-top: 150px;
+}
+
+.divider .ball {
+	display: inline-block;
+    -webkit-border-radius: 45px;
+    -moz-border-radius: 45px;
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(134.83deg, #FFBD5A 25.07%, rgba(233, 0, 0, 0.7) 91.62%);
+}
+
 .about-me {
 	text-align: center;
 	font-size: 22px;
 	width: 1100px;
+	margin-top: 150px;
 }
 
 
