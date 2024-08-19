@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "icon": "imgs/ktm.jpg",
+            "title": "KTM",
+            "subtitle": "Front-end",
+            "description": "This is one of my University projects, One Page style fully responsive website build with HTML, CSS ,JS and Bootstrap.",
+            "link": "https://tropicalboy21.github.io/project-motocross/Examen/one-page.html#invi-nav-01"
+        },
+        {
+            "id": 2,
+            "icon": "imgs/soho.png",
+            "title": "Soho",
+            "subtitle": "Front-end",
+            "description": "Residential Full site for a new development in the neigborgood of Rohrmoser, San José, Costa Rica.",
+            "link": "https://tropicalboy21.github.io/soho-fullpage/project/home.html"
+        },
+        {
+            "id": 4,
+            "icon": "imgs/moka.png",
+            "title": "Moka",
+            "subtitle": "Front-end",
+            "description": "One Page style fully responsive website build for a Veterinary.",
+            "link": "https://tropicalboy21.github.io/Moka_veterinary/"
+        },
+        {
+            "id": 3,
+            "icon": "imgs/jardin1.png",
+            "title": "JT",
+            "subtitle": "Full Stack",
+            "description": "Full Page style fully responsive for a residential tower in the city of Taichuing, Taiwan.",
+            "link": "https://tropicalboy21.github.io/residential-fullpage/project/index.html"
+        },
+        {
+            "id": 5,
+            "icon": "imgs/notes.svg",
+            "title": "Notes",
+            "subtitle": "Full Stack",
+            "description": "Note taker app built with ReactJS framework in other to take notes and save handy information.",
+            "link": "https://notes-app-54078.web.app/"
+        },
+        {
+            "id": 6,
+            "icon": "imgs/memory.png",
+            "title": "Memory",
+            "subtitle": "Full Stack",
+            "description": "Fully responsive Card game build with vanilla JS and deployed fully animated and interactive site.",
+            "link": "https://memory-game-31600.web.app/"
+        }
+    ]
+}
