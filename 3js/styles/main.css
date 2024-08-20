@@ -146,6 +146,12 @@ button {
 	margin-top: 150px;
 }
 
+.divider-container1{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
 .divider .ball {
 	display: inline-block;
     -webkit-border-radius: 45px;
@@ -279,7 +285,7 @@ a, button, input, select {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 1006px;
+    width: 1100px;
 }
 
 .project_container {
