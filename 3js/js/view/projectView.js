@@ -15,7 +15,7 @@ export class ProjectView {
         this.line = hr({ className: 'project_line' }, this.container);
         this.explore = div({ className: 'explore' }, this.container);
         this.exploreText = p({ className: 'explore_text', innerHTML: 'Explore' }, this.explore);
-        this.exploreIcon = img({ className: 'explore_icon', src: 'imgs/arrow.png' }, this.explore);
+        this.exploreIcon = img({ className: 'explore_icon', src: './imgs/right-arrow.png' }, this.explore);
     }
 
     explore(link) {
