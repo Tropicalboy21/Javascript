@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', runTW);
 
 var i = 0;
-var txt = 'Hello World! I am Lenin Ugalde.';
+var txt = 'Hello! I am Lenin Ugalde.';
 var speed = 50;
 
 function typeWriter() {
@@ -48,3 +48,48 @@ document.getElementById('content-container').addEventListener('scroll', scrollVa
 const d = new Date();
 let year = d.getFullYear();
 document.getElementById("year").innerHTML = year;
+
+function smoothScrollToTop() {
+    const startPosition = document.getElementById('content-container').scrollTop;
+    const duration = 1000; // Scroll duration in milliseconds
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, -startPosition, duration);
+
+        document.getElementById('content-container').scrollTop = run;
+
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+}
+
+document.getElementById('scrollUpButton').addEventListener('click', smoothScrollToTop);
+
+function scrollValue() {
+    const background = document.getElementById('content-container');
+    const firstSectionHeight = document.querySelector('.section').offsetHeight; 
+    const scroll = background.scrollTop;
+    const height = firstSectionHeight / 2;
+    const maxBlur = 10;
+    let blurAmount = 0;
+
+    if (scroll > height) {
+        const scrollPastSection = scroll - height;
+        blurAmount = Math.min((scrollPastSection / height) * maxBlur, maxBlur);
+    }
+
+    background.style.backdropFilter = `blur(${blurAmount}px)`;
+}
+
+document.getElementById('content-container').addEventListener('scroll', scrollValue);

@@ -9,12 +9,12 @@
             "link": "https://tropicalboy21.github.io/project-motocross/Examen/one-page.html#invi-nav-01"
         },
         {
-            "id": 2,
-            "icon": "imgs/soho.png",
-            "title": "Soho",
+            "id": 3,
+            "icon": "imgs/jardin1.png",
+            "title": "JT",
             "subtitle": "Front-end",
-            "description": "Residential Full site for a new development in the neigborgood of Rohrmoser, San José, Costa Rica.",
-            "link": "https://tropicalboy21.github.io/soho-fullpage/project/home.html"
+            "description": "Full Page style fully responsive for a residential tower in the city of Taichuing, Taiwan.",
+            "link": "https://tropicalboy21.github.io/residential-fullpage/project/index.html"
         },
         {
             "id": 4,
@@ -23,14 +23,6 @@
             "subtitle": "Front-end",
             "description": "One Page style fully responsive website build for a Veterinary.",
             "link": "https://tropicalboy21.github.io/Moka_veterinary/"
-        },
-        {
-            "id": 3,
-            "icon": "imgs/jardin1.png",
-            "title": "JT",
-            "subtitle": "Full Stack",
-            "description": "Full Page style fully responsive for a residential tower in the city of Taichuing, Taiwan.",
-            "link": "https://tropicalboy21.github.io/residential-fullpage/project/index.html"
         },
         {
             "id": 5,
@@ -47,6 +39,14 @@
             "subtitle": "Full Stack",
             "description": "Fully responsive Card game build with vanilla JS and deployed fully animated and interactive site.",
             "link": "https://memory-game-31600.web.app/"
+        },
+        {
+            "id": 3,
+            "icon": "imgs/tablas.png",
+            "title": "Truth",
+            "subtitle": "Full Stack",
+            "description": "Fully responsible Web App capable of generating the truth table of a given logical proposition.",
+            "link": "https://tablas-de-verdad-7bf59.web.app/"
         }
     ]
 }

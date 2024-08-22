@@ -58,7 +58,7 @@ button {
 }
 
 .section {
-	height: 710px;
+	min-height: 700px;
 	display: flex;
 	justify-content: center;
 }
@@ -394,6 +394,10 @@ a, button, input, select {
 
 }
 
+.contact{
+	display: flex; justify-content: center; align-items: center; min-height: 400px;
+}
+
 .contact-wrapper{
 	border-radius: 5px;
 	height: 340px;
@@ -517,6 +521,12 @@ input:focus {
 
 .scroll-top img{
 	width: 100%;
+}
+
+.scr-footer{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
 }
 
 .footer{
