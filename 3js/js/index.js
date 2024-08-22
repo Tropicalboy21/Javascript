@@ -43,3 +43,8 @@ function scrollValue() {
 }
 
 document.getElementById('content-container').addEventListener('scroll', scrollValue);
+
+
+const d = new Date();
+let year = d.getFullYear();
+document.getElementById("year").innerHTML = year;
