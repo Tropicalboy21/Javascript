@@ -6,6 +6,11 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<link type="text/css" rel="stylesheet" href="./styles/main.css">
 	<link type="text/css" rel="stylesheet" href="./styles/reset.css">
+	<link type="text/css" rel="stylesheet" href="./styles/about.css">
+	<link type="text/css" rel="stylesheet" href="./styles/services.css">
+	<link type="text/css" rel="stylesheet" href="./styles/projects.css">
+	<link type="text/css" rel="stylesheet" href="./styles/contact.css">
+	<link type="text/css" rel="stylesheet" href="./styles/footer.css">
 	<link type="text/css" rel="stylesheet" href="./styles/medias.css">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +26,7 @@
 	</div>
 
 	<div id="content-container">
-		<div class="section">
+		<div class="home">
 			<div class="container">
 				<div class="txt-container">
 				<div class="title">
@@ -39,8 +44,10 @@
 						</div>
 					</div>
 					<div class="about-me">
-						<h3 id="greeting"></h3>
-						<p class="txt">A Software Engineer experienced with the Design, Development, Maintenance, Test and Evaluation of High quality computer software, web and mobile applications, always learning and adapting to new technologies, exploring new creative and optimal solutions.</p>
+						<div>
+							<h3 id="greeting"></h3>
+							<p class="txt">A Software Engineer experienced with the Design, Development, Maintenance, Test and Evaluation of High quality computer software, web and mobile applications, always learning and adapting to new technologies, exploring new creative and optimal solutions.</p>
+						</div>
 					</div>
 					<div class="divider-container">
 						<div class="divider">
@@ -101,7 +108,7 @@
 					<div id="projects-section">
 						<div id="projects-container"></div>
 					</div>			
-					<div class="divider-container1">
+					<div class="divider-container">
 						<div class="divider">
 							<span class="ball3"></span>
 							<span class="ball3"></span>
@@ -190,7 +197,6 @@
 		</section>
 	</div>
 
-
 	<script id="vshader" type="x-shader/x-vertex">
 		precision highp float;
 		uniform mat4 modelViewMatrix;
@@ -260,9 +266,7 @@
     </script>
 
     <script type="module" src="./js/three.js"></script>
-
 	<script type="module" src="./js/projects.js"></script>
-
 	<script src="./js/index.js"></script>
 </body>
 </html> 
