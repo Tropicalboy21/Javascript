@@ -45,7 +45,7 @@ button {
 }
 
 .home {
-	min-height: 750px;
+	min-height: 720px;
 	display: flex;
 	justify-content: center;
 }
