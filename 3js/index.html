@@ -18,6 +18,16 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	<link text-black="" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="shortcut icon" href="./imgs/favicon.png" type="image/x-icon">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "6-oadNNAJ0DcVor1R",
+            });
+        })();
+    </script>
+	<script src="./js/script.js"></script>
 </head>
 <body>
 
@@ -155,31 +165,31 @@
 									</div>
 								</div>
 							</div>
-							<div class="contact-form">
+							<form id="contact-form">
 								<div class="input-wrapper">
 									<div>
 									<label for="">Full Name</label>
 									</div>
-									<input type="text">
+									<input type="text" name="user_name" id="name">
 								</div>
 								<div class="input-wrapper">
 									<div>
 										<label for="">E-mail</label>
 									</div>
-									<input type="text">
+									<input type="email" name="user_email" id="email">
 								</div>
 								<div class="input-wrapper">
 									<div>
 									<label for="">Message</label>
 									</div>
-									<input type="text">
+									<input type="text" name="message" id="message">
 								</div>
 								<div class="btn-container">
 									<div>
-										<button type="submit">Send</button>
+										<button type="submit" value="Send" onclick="sendEmail()">Send</button>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>

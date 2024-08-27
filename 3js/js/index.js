@@ -40,14 +40,11 @@ function scrollValue() {
 
     // Apply the blur filter to the content container
     background.style.backdropFilter = `blur(${blurAmount}px)`;
+    background.style.webkitBackdropFilter = `blur(${blurAmount}px)`; 
 }
 
 document.getElementById('content-container').addEventListener('scroll', scrollValue);
 
-
-const d = new Date();
-let year = d.getFullYear();
-document.getElementById("year").innerHTML = year;
 
 function smoothScrollToTop() {
     const startPosition = document.getElementById('content-container').scrollTop;
@@ -90,6 +87,12 @@ function scrollValue() {
     }
 
     background.style.backdropFilter = `blur(${blurAmount}px)`;
+    background.style.webkitBackdropFilter = `blur(${blurAmount}px)`; 
 }
 
 document.getElementById('content-container').addEventListener('scroll', scrollValue);
+
+
+const d = new Date();
+let year = d.getFullYear();
+document.getElementById("year").innerHTML = year;
