@@ -132,3 +132,25 @@ input:focus {
 	filter: invert(43%) sepia(14%) saturate(456%) hue-rotate(159deg) brightness(90%) contrast(88%);
 	
 }
+
+.input-wrapper div{
+	display: flex;
+}
+
+#req{
+	color: rgb(215, 85, 85);
+	margin-left: 5px;
+	display: none;
+}
+
+#req2{
+	color: rgb(215, 85, 85);
+	margin-left: 5px;
+	display: none;
+}
+
+#req3{
+	color: rgb(215, 85, 85);
+	margin-left: 5px;
+	display: none;
+}
