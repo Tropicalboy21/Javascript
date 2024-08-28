@@ -33,6 +33,10 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         isValid = false;
     }
 
+    if(!isValid){
+        showAlert("I'm sorry", 'Please fill out all the form fields', 'failed');
+    }
+
     if (isValid) {
         let params = {
             name: name,
@@ -45,10 +49,48 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 
         emailjs.send(serviceID, templateID, params)
         .then(() => {
-            alert('Sent!');
+            showAlert('Thank you', 'Your message was successfully sent.', 'success');
             document.getElementById("contact-form").reset();
         }, (err) => {
             alert(JSON.stringify(err));
         });
     }
 });
+
+function showAlert(title, message, type) {
+
+    const alertContainer = document.getElementById('alert-container');
+    const alertTitle = document.getElementById('alert-title');
+    const alertMessage = document.getElementById('alert-message');
+    const alertButton = document.getElementById('alert-button');
+
+    alertContainer.style.display = 'block';
+    alertTitle.textContent = title;
+    alertMessage.textContent = message;
+
+    if(type == "success"){
+        alertButton.classList.add('success');
+        alertButton.textContent = 'ok';
+    } else {
+        alertButton.classList.add('failed');
+        alertButton.textContent = 'Try again';
+    }
+
+    function hideAlert() {
+        alertContainer.classList.add("hide");
+        setTimeout(function() {
+            alertContainer.style.display = "none";
+            alertContainer.classList.remove("hide");
+        }, 5000);
+    }
+
+    alertButton.addEventListener("click", hideAlert);
+
+    document.addEventListener("click", function(event) {
+        if (!alertContainer.contains(event.target)) {
+            hideAlert();
+        }
+    }, { once: true });
+
+}
+
