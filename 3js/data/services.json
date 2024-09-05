@@ -3,24 +3,25 @@
         "title": "Full-stack Development",
         "image": "full-stack.png",
         "description": "I specialize in creating end-to-end solutions, managing both front-end and back-end development to deliver fully functional and responsive software applications. <br> <br> My experience spans across developing user-friendly interfaces, building robust server-side logic, and ensuring seamless integration between all layers of the technology stack.", 
-        "icons": ["js.png", "node.webp", "php.png", "html.webp", "css.png", "react.png", "angular.png", "mongodb.svg", "sql.png"]
+        "icons": ["js.png", "node.webp", "php.png", "html.webp", "css.png", "react.png", "angular.png", "mongodb.svg", "sql.png", "cpp.png", "swift.svg", "py.svg", "java.svg", "csharp.png", "mysql.svg", "threejs.png", "kotlin.webp", "ts.png", "net.png", "firebase.png"]
     },
     "ui": {
         "title": "UX & UI Design",
         "image": "ux-ui.png",
         "description": "I craft intuitive and visually appealing user interfaces that enhance user engagement. My design process is rooted in understanding user behavior, ensuring that your product is both functional and aesthetically pleasing",
-        "icons": []
+        "icons": ["figma.webp", "xd.png", "sketch.png", "photoshop.png", "linearity-curve.webp", "illustrator.png"]
     },
     "arch": {
         "title": "Software Architecture",
         "image": "architecture.png",
         "description": "I structure scalable and maintainable software solutions that align with your long-term goals. My approach focuses on creating flexible systems that can adapt and evolve to changing requirements while maintaining optimal performance. <br><br> My experience includes designing microservices architectures, optimizing performance, and ensuring robust security measures are in place.",
+        "subtitle": "Skills",
         "icons": []
     },
     "ci": {
         "title": "DevOps and CI/CD",
         "image": "devops.png",
-        "description": "DevOps practices and CI/CD pipelines ensure continuous integration and delivery for software development.",
-        "icons": []
+        "description": "I streamline development and deployment processes through continious integration and continious delivery DevOps and CI/CD practice. I ensure your software is deployed reliably, with automated testing and monitoring to maintain high availability and performance.",
+        "icons": ["git.svg","api.png", "aws.png", "docker.webp", "kubernetes.svg"]
     }
 }
