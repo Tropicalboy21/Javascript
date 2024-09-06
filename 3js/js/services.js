@@ -1,18 +1,3 @@
-// const { title } = require("process");
-
-// document.querySelectorAll('.service').forEach(service => {
-//     service.addEventListener('click', function() {
-//         document.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
-//         this.classList.add('active');
-//     });
-// });
-
-// document.addEventListener('click', function(event) {
-//     if (!event.target.closest('.service.active')) {
-//         document.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
-//     }
-// });
-
 const cards = document.querySelectorAll('.service');
 const dataFilePath = './data/services.json';
 
@@ -46,6 +31,8 @@ async function getCardContent (title, type){
 			<img src="./imgs/${type}.png" alt="${title}">
             <h2>${title}</h2>
 			<p>${contentData.description}</p>
+            <h2>${contentData.subtitle}</h2>
+            <p>${contentData.skills}</p>
             <h2>Technologies</h2>
             ${imagesHTML}
         </div>

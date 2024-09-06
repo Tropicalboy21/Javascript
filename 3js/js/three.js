@@ -1,6 +1,10 @@
-import * as THREE from 'three';
-import Stats from 'three/addons/libs/stats.module.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import * as THREE from '../js/libs/three.module.js';
+// import Stats from '../node_modules/three/examples/jsm/libs/stats.module.js';
+// import { OrbitControls } from '../node_modules/three/examples/jsm/Addons/controls/OrbitControls.js'
+
+// import * as THREE from './three/libs/three.module.js';
+// import Stats from './three/libs/stats.module.js';
+// import { OrbitControls } from './three/libs/OrbitControls.js';
 
 let container, stats;
 let camera, scene, renderer, controls;
@@ -89,9 +93,9 @@ function init() {
 		// stats = new Stats();
 		// container.appendChild(stats.dom);
 
-		controls = new OrbitControls(camera, renderer.domElement);
-		controls.enableDamping = true;
-		controls.dampingFactor = 0.05;
+		// controls = new OrbitControls(camera, renderer.domElement);
+		// controls.enableDamping = true;
+		// controls.dampingFactor = 0.05;
 
 		window.addEventListener('resize', onWindowResize);
     }
@@ -123,7 +127,7 @@ function animate() {
 
 	material.uniforms['time'].value = time;
 
-	controls.update();
+	// controls.update();
 	renderer.render(scene, camera);
 	// stats.update();
 }
